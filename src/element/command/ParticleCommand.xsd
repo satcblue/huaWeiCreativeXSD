@@ -1,0 +1,36 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:include schemaLocation="../../complexType/command/ParticleCommand.xsd"/>
+    <xs:include schemaLocation="../../complexType/2DHighAnimation/CircleShape.xsd"/>
+    <xs:include schemaLocation="../../complexType/2DHighAnimation/PolygonShape.xsd"/>
+
+    <xs:element name="ParticleCommand">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="ParticleCommand">
+                    <xs:choice minOccurs="0" maxOccurs="unbounded">
+                        <xs:element name="CircleShape" minOccurs="0"
+                                    maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:complexContent>
+                                    <xs:extension base="CircleShape">
+                                    </xs:extension>
+                                </xs:complexContent>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="PolygonShape" minOccurs="0"
+                                    maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:complexContent>
+                                    <xs:extension base="PolygonShape">
+                                    </xs:extension>
+                                </xs:complexContent>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:choice>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

@@ -1,0 +1,13 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:include schemaLocation="../../complexType/command/VideoCommand.xsd"/>
+    <xs:element name="VideoCommand">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="VideoCommand">
+
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,30 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:include schemaLocation="../../complexType/view/Base.xsd"/>
+    <xs:complexType name="Path">
+        <xs:annotation>
+            <xs:documentation>
+                路径
+                定义了Slider滑动允许的范围，滑动的范围位于Position的连线上面，Path中给予了Position一个基础值，可以简单的认为是从Path定义的x加上Position的x，Path的y加上Position的y的两个Position之间的连线。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="Base">
+                <xs:attribute name="x" type="xs:decimal" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            位置的x坐标。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="y" type="xs:decimal" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            位置的y坐标。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+
+    </xs:complexType>
+</xs:schema>

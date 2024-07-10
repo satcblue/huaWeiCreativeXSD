@@ -1,0 +1,89 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative"
+>
+    <xs:include schemaLocation="../../complexType/application/Lockscreen.xsd"/>
+
+    <xs:include schemaLocation="../../element/view/export.xsd"/>
+    <xs:include schemaLocation="../../element/group/export.xsd"/>
+    <xs:include schemaLocation="../../element/control/export.xsd"/>
+    <xs:include schemaLocation="../../element/command/export.xsd"/>
+    <xs:include schemaLocation="../../element/var/export.xsd"/>
+    <xs:include schemaLocation="../../element/2DHighAnimation/export.xsd"/>
+    <xs:include schemaLocation="../../element/3DHighAnimation/export.xsd"/>
+    <xs:include schemaLocation="../../element/adapter/export.xsd"/>
+
+
+    <xs:element name="Lockscreen">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="Lockscreen">
+                    <xs:choice minOccurs="0" maxOccurs="unbounded">
+                        <xs:element ref="Video" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="Image" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="Text" minOccurs="0" maxOccurs="unbounded"/>
+
+                        <xs:element ref="Time" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="DateTime" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="CountDownTime" minOccurs="0" maxOccurs="unbounded"/>
+
+                        <xs:element ref="ImageNumber" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="ImageSeries" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="SourceImage" minOccurs="0" maxOccurs="unbounded"/>
+
+                        <xs:element ref="Arc" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="Line" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="Ellipse" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="Circle" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="Rectangle" minOccurs="0" maxOccurs="unbounded"/>
+
+                        <xs:element ref="PathUtil" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="Wallpaper" minOccurs="0" maxOccurs="unbounded"/>
+
+                        <xs:element ref="Group" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="VirtualScreen" minOccurs="0" maxOccurs="unbounded"/>
+
+                        <xs:element ref="Button" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="Unlocker" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="Slider" minOccurs="0" maxOccurs="unbounded"/>
+
+
+                        <xs:element ref="Command" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="CycleCommand" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="RefreshWeatherCommand" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="VideoCommand" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="SoundCommand" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="CollBodyCommand" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="ExternCommand" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="ExternalCommands" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="IntentCommand" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="ParticleCommand" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="GroupCommands" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="VariableCommand" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="VibrateCommand" minOccurs="0" maxOccurs="unbounded"/>
+
+                        <xs:element ref="VarArray" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="Var" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="Array" minOccurs="0" maxOccurs="unbounded"/>
+
+                        <xs:element ref="FluidsView" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="DropPhysicalView" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="CollisionWorld" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="VR" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="MeshImage" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="WaterWallpaper" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="Paint" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="ParticleView" minOccurs="0" maxOccurs="unbounded"/>
+
+                        <xs:element ref="MultiLayer" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="StereoView" minOccurs="0" maxOccurs="unbounded"/>
+
+                        <xs:element ref="VariableBinders" minOccurs="0" maxOccurs="1"/>
+                    </xs:choice>
+                </xs:extension>
+            </xs:complexContent>
+
+        </xs:complexType>
+    </xs:element>
+
+
+</xs:schema>

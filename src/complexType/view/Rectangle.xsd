@@ -1,0 +1,40 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:include schemaLocation="../../complexType/view/GeometricalBase.xsd"/>
+    <xs:complexType name="Rectangle">
+        <xs:annotation>
+            <xs:documentation>
+                矩形和圆角矩形元素 &lt;Rectangle&gt;
+                用于绘制矩形或圆角矩形图形。
+                应用场景:
+                - 可以写固定几条路线，点击按钮随机播放路线动画。
+                - 可写几何图形拼七巧板之类拼图效果。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="RemoveNABaseGeometricalBase">
+                <xs:attribute name="cornerRadius" type="xs:string" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            矩形圆角半径，格式”x向半径,y向半径”，例如："10,10"，半径为正整数，默认为0，单位为像素。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="w" type="xs:decimal" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            矩形宽，自然数，默认为0，单位为像素，支持表达式。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="h" type="xs:decimal" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            矩形高，自然数，默认为0，单位为像素，支持表达式。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,34 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:include schemaLocation="../../complexType/view/Image.xsd"/>
+
+    <xs:include schemaLocation="../../element/2DBaseAnimation/AlphaAnimation.xsd"/>
+    <xs:include schemaLocation="../../element/2DBaseAnimation/PositionAnimation.xsd"/>
+    <xs:include schemaLocation="../../element/2DBaseAnimation/RotationAnimation.xsd"/>
+    <xs:include schemaLocation="../../element/2DBaseAnimation/SizeAnimation.xsd"/>
+    <xs:include schemaLocation="../../element/2DBaseAnimation/SourcesAnimation.xsd"/>
+    <xs:include schemaLocation="../../element/2DBaseAnimation/VariableAnimation.xsd"/>
+    <xs:include schemaLocation="../../element/2DHighAnimation/Paint.xsd"/>
+
+    <xs:include schemaLocation="../../element/view/Mask.xsd"/>
+
+    <xs:element name="Image">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="Image">
+                    <xs:choice minOccurs="0" maxOccurs="unbounded">
+                        <xs:element ref="AlphaAnimation" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="PositionAnimation" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="RotationAnimation" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="SizeAnimation" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="SourcesAnimation" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="VariableAnimation" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="Mask" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="Paint" minOccurs="0" maxOccurs="1"/>
+                    </xs:choice>
+                </xs:extension>
+            </xs:complexContent>
+
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

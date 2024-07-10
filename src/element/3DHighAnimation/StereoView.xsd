@@ -1,0 +1,36 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:include schemaLocation="../../complexType/3DHighAnimation/StereoView.xsd"/>
+    <xs:include schemaLocation="../../complexType/3DHighAnimation/StereoGroup.xsd"/>
+
+    <xs:include schemaLocation="../../element/view/Image.xsd"/>
+    <xs:include schemaLocation="../../element/view/Text.xsd"/>
+    <xs:include schemaLocation="../../element/control/Button.xsd"/>
+
+
+    <xs:element name="StereoView">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="StereoView">
+                    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                        <xs:element name="StereoGroup" minOccurs="0"
+                                    maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:complexContent>
+                                    <xs:extension base="StereoGroup">
+                                        <xs:choice minOccurs="0" maxOccurs="unbounded">
+                                            <xs:element ref="Image" minOccurs="0" maxOccurs="unbounded"/>
+                                            <xs:element ref="Text" minOccurs="0" maxOccurs="unbounded"/>
+                                            <xs:element ref="Button" minOccurs="0" maxOccurs="unbounded"/>
+                                        </xs:choice>
+                                    </xs:extension>
+                                </xs:complexContent>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

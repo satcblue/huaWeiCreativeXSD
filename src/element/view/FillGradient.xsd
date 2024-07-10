@@ -1,0 +1,24 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+
+    <xs:include schemaLocation="../../complexType/view/FillGradient.xsd"/>
+
+    <xs:include schemaLocation="../../element/view/Linear.xsd"/>
+    <xs:include schemaLocation="../../element/view/Radial.xsd"/>
+    <xs:include schemaLocation="../../element/view/Sweep.xsd"/>
+
+    <xs:element name="FillGradient">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="FillGradient">
+                    <xs:choice minOccurs="0" maxOccurs="unbounded">
+                        <xs:element ref="Linear" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="Radial" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="Sweep" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:choice>
+                </xs:extension>
+            </xs:complexContent>
+
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

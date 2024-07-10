@@ -1,0 +1,16 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:include schemaLocation="../../complexType/view/PathUtil.xsd"/>
+    <xs:include schemaLocation="../../element/view/FillGradient.xsd"/>
+    <xs:include schemaLocation="../../element/view/StrokeGradient.xsd"/>
+
+    <xs:element name="PathUtil">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="PathUtil">
+
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

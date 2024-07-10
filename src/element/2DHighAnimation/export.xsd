@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative" xmlns="https://www.satcblue.cn/XMLSchema/HuaWeiCreative" elementFormDefault="qualified">
+  <xs:include schemaLocation="../../element/2DHighAnimation/FluidsView.xsd"/>
+  <xs:include schemaLocation="../../element/2DHighAnimation/DropPhysicalView.xsd"/>
+  <xs:include schemaLocation="../../element/2DHighAnimation/CollisionWorld.xsd"/>
+  <xs:include schemaLocation="../../element/2DHighAnimation/VR.xsd"/>
+  <xs:include schemaLocation="../../element/2DHighAnimation/MeshImage.xsd"/>
+  <xs:include schemaLocation="../../element/2DHighAnimation/WaterWallpaper.xsd"/>
+  <xs:include schemaLocation="../../element/2DHighAnimation/Paint.xsd"/>
+  <xs:include schemaLocation="../../element/2DHighAnimation/ParticleView.xsd"/>
+</xs:schema>

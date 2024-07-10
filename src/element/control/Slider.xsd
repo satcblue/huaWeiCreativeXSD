@@ -1,0 +1,19 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:include schemaLocation="../../complexType/control/Slider.xsd"/>
+    <xs:include schemaLocation="../../element/control/StartPoint.xsd"/>
+    <xs:include schemaLocation="../../element/control/EndPoint.xsd"/>
+
+    <xs:element name="Slider">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="Slider">
+                    <xs:choice minOccurs="0" maxOccurs="unbounded">
+                        <xs:element ref="StartPoint" minOccurs="0" maxOccurs="1"/>
+                        <xs:element ref="EndPoint" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:choice>
+                </xs:extension>
+            </xs:complexContent>
+
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

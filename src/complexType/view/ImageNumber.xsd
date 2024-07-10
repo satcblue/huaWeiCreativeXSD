@@ -1,0 +1,32 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:include schemaLocation="../../complexType/view/Base.xsd"/>
+
+    <xs:complexType name="ImageNumber">
+        <xs:annotation>
+            <xs:documentation>
+                数字图片能够对输入的数值或者数值表达式进行解析，并按照表达式中数字顺序拼接字符图片。例如,src="number.png"
+                则会使用 number_0.png，number_1.png 等字符图片来显示数字（即映射"_"字符后的数字字符）。
+                串联图片&lt;ImageSeries&gt;已包含了数字图片的功能，在使用ImageNumber的时候较长的数值会导致不精确的问题，建议使用串联图片&lt;ImageSeries&gt;。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="RemoveWHRBase">
+                <xs:attribute name="number" type="xs:string" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            要显示的数值或者数值表达式，取值需为有效数值，且位数小于8位。有效数值示例：1234，1023456；无效数值示例：0123。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="src" type="xs:string" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            字符图片源的文件名，例如图片前缀是pre，则需要准备pre_0~pre_9等10张图片，图片后缀保持与src一致。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+
+    </xs:complexType>
+</xs:schema>

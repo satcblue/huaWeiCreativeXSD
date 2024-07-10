@@ -1,0 +1,47 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:include schemaLocation="../../complexType/view/Base.xsd"/>
+
+    <xs:complexType name="ImageSeries">
+        <xs:annotation>
+            <xs:documentation>
+                串联图片ImageSeries提供了根据输入字符串进行图片串联的功能，即能够按照字符顺序将字符图片拼在一起并显示；相比较ImageNumber，串联图片能够解析字符而不仅限于数字，提供了更强的解析能力。
+                例如，可以用字符图片显示 '2020.01.01'（包含两个'.'）或者 'Moon Festival
+                8.15'(包含字符)，而这些功能数字图片均无法支持。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="RemoveWHRBase">
+                <xs:attribute name="src" type="xs:string" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            待拼接的字符图片前缀，前缀与后缀通过“_”连接。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="string" type="xs:string" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            按照字符串的形式提供待拼接的多张字符图片后缀，支持字符串和字符串表达式。
+                            例如，letter_0.png表示一张完整字符图片名称，其中letter表示前缀，0表示后缀，通过“_”相连。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="space" type="xs:integer" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            待拼接的字符图片之间的间隔，默认为0。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="mapList" type="xs:string" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            映射列表，用英文逗号分隔。其中，每项第一个字符表示原字符（对应string中的字符），后续字符串（一个或多个）表示映射字符串（对应字符图片名称）。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

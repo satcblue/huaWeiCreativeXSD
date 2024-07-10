@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative" xmlns="https://www.satcblue.cn/XMLSchema/HuaWeiCreative" elementFormDefault="qualified">
-  <xs:include schemaLocation="../../element/2D基础动效/VariableAnimation.xsd"/>
-  <xs:include schemaLocation="../../element/2D基础动效/PositionAnimation.xsd"/>
-  <xs:include schemaLocation="../../element/2D基础动效/SizeAnimation.xsd"/>
-  <xs:include schemaLocation="../../element/2D基础动效/SourcesAnimation.xsd"/>
-  <xs:include schemaLocation="../../element/2D基础动效/AlphaAnimation.xsd"/>
-  <xs:include schemaLocation="../../element/2D基础动效/RotationAnimation.xsd"/>
-</xs:schema>

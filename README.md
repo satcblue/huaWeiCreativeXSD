@@ -9,7 +9,7 @@
 3. 类型定义比较严格，不支持表达式类型
 4. 当前只支持LockScreen
 # 如何使用
-下载一个支持xml语法提示的编辑器，如IDEA，目的是让编辑器进行语法提示，下面以IDEA的使用为例子
+下载一个支持xml语法提示的编辑器，如[IDEA](https://www.jetbrains.com/idea/download/)，目的是让编辑器进行语法提示，下面以IDEA的使用为例子
 1. 创建一个xml文件，如demo.xml
 2. 键入以下语句，会发现键入<Lockscreen> 等时会有相应的语法提示
 ```xml

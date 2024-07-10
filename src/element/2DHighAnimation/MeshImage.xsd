@@ -1,0 +1,35 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:include schemaLocation="../../complexType/2DHighAnimation/MeshImage.xsd"/>
+    <xs:include schemaLocation="../../complexType/2DHighAnimation/Translation.xsd"/>
+    <xs:include schemaLocation="../../complexType/2DHighAnimation/SinMotion.xsd"/>
+    <xs:element name="MeshImage">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="MeshImage">
+                    <xs:choice minOccurs="1" maxOccurs="1">
+                        <xs:element name="Translation" minOccurs="0"
+                                    maxOccurs="1">
+                            <xs:complexType>
+                                <xs:complexContent>
+                                    <xs:extension base="Translation">
+                                    </xs:extension>
+                                </xs:complexContent>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="SinMotion" minOccurs="0"
+                                    maxOccurs="1">
+                            <xs:complexType>
+                                <xs:complexContent>
+                                    <xs:extension base="SinMotion">
+                                    </xs:extension>
+                                </xs:complexContent>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:choice>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

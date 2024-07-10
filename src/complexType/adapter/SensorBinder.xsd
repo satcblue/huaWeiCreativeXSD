@@ -1,0 +1,117 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative"
+           elementFormDefault="qualified">
+    <xs:complexType name="SensorBinder">
+        <xs:annotation>
+            <xs:documentation>
+                支持获取四种类型的传感器数据，即加速传感器（accelerometer）、重力传感器（gravity）、线性加速传感器（linearAccelerometer）和陀螺仪（gyroscope）。其中，加速传感器获取的值是线性加速度传感器与重力传感器相加得到的结果，即：加速度(accelerometer)
+                = 线性加速度（linearAccelerometer）+ 重力加速度（gravity）。基于传感器功能，可实现重力感应和摇一摇等效果。
+                manifest.xml文件中只能有一个VariableBinders和SensorBinder。需要根据应用场景来选择合适的传感器类型，例如：实现重力感应效果时推荐使用accelerometer。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="type" use="optional" type="SensorBinderType">
+            <xs:annotation>
+                <xs:documentation>
+                    传感器类型，支持：accelerometer、gravity、linearAccelerometer和gyroscope四种类型
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="vibrate" use="optional" type="xs:decimal">
+            <xs:annotation>
+                <xs:documentation>
+                    摇一摇是否触发震动，取值0/1。0表示不触发震动，1表示触发震动。默认为0，支持表达式
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="shakeTime" use="optional" type="xs:decimal">
+            <xs:annotation>
+                <xs:documentation>
+                    摇一摇触发震动的震动时长，单位为ms，默认为0，支持表达式
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="delay" use="optional" type="xs:decimal">
+            <xs:annotation>
+                <xs:documentation>
+                    摇一摇触发震动的延时时间，单位为ms，默认为0，支持表达式
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+    <xs:complexType name="Variable">
+        <xs:annotation>
+            <xs:documentation>
+                支持获取四种类型的传感器数据，即加速传感器（accelerometer）、重力传感器（gravity）、线性加速传感器（linearAccelerometer）和陀螺仪（gyroscope）。其中，加速传感器获取的值是线性加速度传感器与重力传感器相加得到的结果，即：加速度(accelerometer)
+                = 线性加速度（linearAccelerometer）+ 重力加速度（gravity）。基于传感器功能，可实现重力感应和摇一摇等效果。
+                manifest.xml文件中只能有一个VariableBinders和SensorBinder。需要根据应用场景来选择合适的传感器类型，例如：实现重力感应效果时推荐使用accelerometer。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="index" use="required" type="xs:decimal">
+            <xs:annotation>
+                <xs:documentation>
+                    见传感器index解释
+                    用于标识传感器某个特定方向，取值为0,1,2；具体含义参考下文表格中的解释说明
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="name" use="optional" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>
+                    变量名，用于记录传感器在对应index方向上的值，在使用时可通过#name获取该变量的值
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+
+    <xs:simpleType name="SensorBinderType">
+        <xs:annotation>
+            <xs:documentation>
+                支持：accelerometer、gravity、linearAccelerometer和gyroscope四种类型
+                不同类型传感器index解释说明：
+                accelerometer: 0，1，2
+                index=0、1、2分别表示x、y、z方向的加速度
+
+                gravity: 0，1，2
+                index=0、1、2分别表示x、y、z方向的重力加速度
+
+                linearAccelerometer:0，1，2
+                index=0、1、2分别表示x、y、z方向的线性加速度
+
+                gyroscope:0，1，2
+                index=0、1、2分别表示x、y、z方向的角速度
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="accelerometer">
+                <xs:annotation>
+                    <xs:documentation>
+                        加速传感器
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="gravity">
+                <xs:annotation>
+                    <xs:documentation>
+                        重力传感器
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="linearAccelerometer">
+                <xs:annotation>
+                    <xs:documentation>
+                        线性加速传感器
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+            <xs:enumeration value="gyroscope">
+                <xs:annotation>
+                    <xs:documentation>
+                        陀螺仪
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative" xmlns="https://www.satcblue.cn/XMLSchema/HuaWeiCreative" elementFormDefault="qualified">
+  <xs:include schemaLocation="../../element/view/Radial.xsd"/>
+  <xs:include schemaLocation="../../element/view/Video.xsd"/>
+  <xs:include schemaLocation="../../element/view/Sweep.xsd"/>
+  <xs:include schemaLocation="../../element/view/Image.xsd"/>
+  <xs:include schemaLocation="../../element/view/Text.xsd"/>
+  <xs:include schemaLocation="../../element/view/FillGradient.xsd"/>
+  <xs:include schemaLocation="../../element/view/Mask.xsd"/>
+  <xs:include schemaLocation="../../element/view/ImageNumber.xsd"/>
+  <xs:include schemaLocation="../../element/view/Arc.xsd"/>
+  <xs:include schemaLocation="../../element/view/ImageSeries.xsd"/>
+  <xs:include schemaLocation="../../element/view/Line.xsd"/>
+  <xs:include schemaLocation="../../element/view/StrokeGradient.xsd"/>
+  <xs:include schemaLocation="../../element/view/Linear.xsd"/>
+  <xs:include schemaLocation="../../element/view/SourceImage.xsd"/>
+  <xs:include schemaLocation="../../element/view/Time.xsd"/>
+  <xs:include schemaLocation="../../element/view/Ellipse.xsd"/>
+  <xs:include schemaLocation="../../element/view/Wallpaper.xsd"/>
+  <xs:include schemaLocation="../../element/view/GradientPoint.xsd"/>
+  <xs:include schemaLocation="../../element/view/DateTime.xsd"/>
+  <xs:include schemaLocation="../../element/view/Circle.xsd"/>
+  <xs:include schemaLocation="../../element/view/Rectangle.xsd"/>
+  <xs:include schemaLocation="../../element/view/PathUtil.xsd"/>
+  <xs:include schemaLocation="../../element/view/CountDownTime.xsd"/>
+</xs:schema>

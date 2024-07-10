@@ -1,0 +1,16 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:include schemaLocation="../../complexType/view/Sweep.xsd"/>
+    <xs:include schemaLocation="../../element/view/GradientPoint.xsd"/>
+    <xs:element name="Sweep">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="Sweep">
+                    <xs:choice minOccurs="0" maxOccurs="unbounded">
+                        <xs:element ref="GradientPoint" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:choice>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

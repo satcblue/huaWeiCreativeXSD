@@ -1,0 +1,224 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:include schemaLocation="../../complexType/view/Base.xsd"/>
+
+    <xs:complexType name="Text">
+        <xs:annotation>
+            <xs:documentation>
+                按照特定格式来显示文本，支持对文字大小、颜色、行间距、是否自动换行（当文字实际宽度超过设置的宽度时）等进行设置；
+                此外，还提供文字跑马灯、文字阴影以及文字路径（即可以将文字按照设定的路径轨迹来进行展示）等高级的文字效果。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="Base">
+                <xs:attribute name="color" type="xs:string" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            文字颜色，支持6位或8位16进制颜色表示，如：#FFFFFF 或
+                            #FFFFFFFF。8位中前两位表示透明度，后六位依次表示红、绿、蓝；
+                            支持函数argb(255,255,255,255) (argb(透明度，红，绿，蓝)，每个数值在[0-255]范围内）；支持字符串变量，如：@abc，
+                            字符串变量需为无#的6或8位16进制表示："ffffff" 或
+                            "ffffffff"，或argb函数。注意：设置color后通用属性alpha设置无效。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="size" type="xs:positiveInteger" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            文字大小，取值正数，默认40，单位为像素。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="format" type="xs:string" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            支持在文字中引用数值或字符串变量，用%d，%s 指定变量位置，并在paras参数中指定对应变量表达式；
+                            支持引用多个变量；%d表示数值表达式，%s表示字符串表达式。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="paras" type="xs:string" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            如果使用format参数, 则需要在paras参数中指定%d，%s对应的变量表达式；多个变量表达式用","
+                            隔开；
+                            %d表示数值表达式，%s表示字符串表达式。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="text" type="xs:string" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            文字
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="textExp" type="xs:string" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            文字表达式，可直接引用单变量，不支持由多个变量构建的表达式。示例：想要输出“现在时间是9点”，
+                            则可以写成textExp="'现在时间是'+#hour+'点'"；text与textExp效果相同。使用text方式，则可以写成text="现在时间是9点"。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="width" type="xs:positiveInteger" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            文字宽度，当文字超过该宽度时会被切掉。如果设置了自动换行，则会折行显示文字。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="autoLineFeed" type="xs:boolean" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            true/false，控制是否支持自动换行。true为支持自动换行，默认false。为true时须设置width，否则不会自动换行。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="textalign" type="xs:string" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            文字的对齐方式，可选输入为left, right, center，分别为左对齐，右对齐和居中对齐。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="bold" type="xs:boolean" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            true/false，字体是否加粗，true表示加粗，默认false。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="isSupportClipping" type="xs:boolean" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            true/false，设置属性超出width后是否裁剪，true表示裁剪，默认false。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="spaceTimes" type="xs:decimal" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            行间距倍数，类似于word行间距，默认1。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="spaceExtraAdd" type="xs:decimal" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            行间距的额外增加值，即在基础行距上增加多少行间距。单位像素，默认0。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="shadowDx" type="xs:decimal" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            文字阴影横向偏移距离，单位为像素。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="shadowDy" type="xs:decimal" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            文字阴影纵向偏移距离，单位为像素。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Radius" type="xs:decimal" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            模糊半径，建议范围[1-24],值越小文字阴影越清晰。（模糊半径相同时，size大的文本阴影相对size小的文本模糊程度略小一些）
+                            注意：小于等于0无阴影效果。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="shadowColor" type="xs:string" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            阴影颜色，颜色取值见color参数解释；不设置该参数则无文字阴影效果。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="marquee" type="xs:boolean" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            true/false，控制是否使用文字跑马灯效果，true为使用，默认false。
+                            注意：若同时使用文字跑马灯和文字阴影，则文字阴影颜色会被跑马灯颜色覆盖。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="showTime" type="xs:positiveInteger" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            跑马灯移动间隔时长，单位为ms。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="showStyle" type="xs:positiveInteger" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            0/1，默认为0，控制跑马灯效果。0表示单向闪动，1表示来回闪动。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="marqueeColor" type="xs:string" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            跑马灯灯的颜色，颜色取值见color参数解释。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="tileMode" type="xs:string" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            跑马灯颜色平铺模式，支持两种模式。STRETCH：跑马灯颜色边缘拉伸，是默认值；
+                            LOOP：color和marqueeColor在水平方向上重复。注意：如果无法清楚地看到两种模式的区别，
+                            可以将text内容设置为，中文字符7个以上，英文字符10个以上。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="canPath" type="xs:boolean" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            true/false，控制是否将文字按照path路径进行展示，其中路径由一系列PathItem定义。
+                            Text标签中x，y参数表示路径起始点； PathItem标签参数解析：PathItem 表示一小段路径，
+                            其中type表示路径类型（quadTo或者lineTo）；controlX, controlY表示路径控制点的横纵坐标
+                            （路径控制点类似PS中钢笔工具两点之间锚点的位置坐标，用于控制弧度大小）；PathItem标签中x，y
+                            参数表示路径结束点的横纵坐标；注意：controlX, controlY
+                            仅在type类型为quadTo时生效，为lineTo时无须设置。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="scrollDisplay" type="xs:boolean" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            true：文本支持滚动显示；false: 文本不支持滚动显示。默认为false，不支持滚动显示。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="marqueeRepeatLimit" type="xs:positiveInteger" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            滚动显示时循环滚动次数，和scrollDisplay配合使用。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="clickable" type="xs:boolean" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            true：滚动显示文本可以响应单击和双击，单击和双击文本回到初始状态；
+                            false：滚动显示文本可以不响应单击和双击。默认为false，不响应单击和双击，和scrollDisplay配合使用。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="delayTime" type="xs:positiveInteger" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            延迟滚动的时间，和scrollDisplay配合使用。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>
