@@ -1,0 +1,21 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="CommonWallpaper">
+        <xs:annotation>
+            <xs:documentation>
+                功能概述:
+                引擎实现桌面全景动效壁纸，仅支持传感器模式。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="frameRate" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>帧率，控制全景动效的刷新率。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="screenWidth" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>屏幕宽度，用于适配全景动效的显示。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

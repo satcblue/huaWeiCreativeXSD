@@ -1,0 +1,53 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="WaterWallpaper">
+        <xs:annotation>
+            <xs:documentation>
+                动效概述:
+                点击屏幕产生全屏水波纹效果，网格分的越多，水波效果越细腻。不建议分太多网格，会消耗过多资源。
+
+                场景举例:
+                背景为水或者与水相关的场景，皆可用水波纹动效。添加音效和震动，可使场景更加逼真。
+                比如：
+                - 点击荷花池水面，会有水波纹产生，并附加水的音效。
+                - 点击鱼塘水面，产生水波纹，鱼儿被吓游走，附加水的音效以及震动的效果，使鱼儿被吓走的场景更真实化。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="xmesh" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    x方向上分成多少网格，取值范围为1~100，默认值为27，支持数值表达式。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ymesh" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    y方向上分成多少网格，取值范围为1~100，默认值为48，支持数值表达式。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="src" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    图片资源名称，支持变量，如@abc。如果该参数为空，则会从lockscreen目录中取"default_lock_wallpaper.jpg"或”background.jpg"，优先取前者。
+                    图片支持用户自动义，自定义路径必须为sd卡下路径，须以“../../../../../sdcard”开头，例如“../../../../../sdcard/Pictures/123.png”，后续路径可自定义。图片必须为png/jpg格式。图片大小须小于10M。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="torsion" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    扭曲度，值越大，图片扭曲变形越大，水波纹效果越明显；取值范围1~10，默认值为2，支持数值表达式。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="color" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    触摸处顶点颜色，支持6位16进制颜色表示，如#0000ff。颜色透明度较小，无特殊需求，建议不设置。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,25 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Position">
+        <xs:attribute name="x" type="xs:int" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    相对于图片初始位置的x坐标，整数。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="y" type="xs:int" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    相对于图片初始位置的y坐标，整数。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="time" type="xs:int" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    [0-~]，相对于起始帧的间隔时间（毫秒），不小于0。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

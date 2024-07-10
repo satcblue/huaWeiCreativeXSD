@@ -1,0 +1,42 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="PolygonShape">
+        <xs:attribute name="type" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>设置该形状是流体（water）或固体（solid），默认为流体（water）</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="hx" type="xs:float" use="required">
+            <xs:annotation>
+                <xs:documentation>方形流体的半宽，与xPosition取值的映射关系保持一致，决定方形流体的范围大小
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="hy" type="xs:float" use="required">
+            <xs:annotation>
+                <xs:documentation>方形流体的半高，与xPosition取值的映射关系保持一致，决定方形流体的范围大小
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="angle" type="xs:float" use="required">
+            <xs:annotation>
+                <xs:documentation>方形流体旋转的角度（0-360），围绕中心点进行旋转，顺时针计算角度
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="xPosition" type="xs:float" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    中心点的x轴坐标，取值范围为（0-3），固定将实际屏幕的宽映射为3，故xPosition取值范围为（0-3）。中心点为对角线的交点
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="yPosition" type="xs:float" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    中心点的Y轴坐标，与xPosition取值的映射关系保持一致，同时与实际屏幕的宽高比保持一致
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

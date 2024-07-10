@@ -1,0 +1,24 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:include schemaLocation="../../complexType/应用/LiveWallpaper.xsd"/>
+    <xs:include schemaLocation="../../complexType/应用/VideoWallpaper.xsd"/>
+    <xs:element name="LiveWallpaper">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="LiveWallpaper">
+                    <xs:all minOccurs="1" maxOccurs="1">
+                        <xs:element name="VideoWallpaper" minOccurs="1" maxOccurs="1">
+                            <xs:complexType>
+                                <xs:complexContent>
+                                    <xs:extension base="VideoWallpaper">
+                                    </xs:extension>
+                                </xs:complexContent>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:all>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

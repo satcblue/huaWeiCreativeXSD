@@ -1,0 +1,50 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Texture">
+        <xs:attribute name="x" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>相对父标签的x坐标，默认0。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="y" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>相对父标签的y坐标，默认0。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="w" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>图片资源宽度，默认0。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="h" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>图片资源高度，默认0。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="src" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>图片名称的相对路径，图片文件名例如：image.png。图片大小须小于5M。图片支持png/jpg/gif格式。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="srcid" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>图片序列后缀数字，一般用变量表示，可以根据变量显示不同的图片，如果src="pic.png" srcid="1" 则最后会显示图片 "pic_1.png"，大于0， 正整数，支持数字表达式。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="scaleType" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>图片的缩放模式，目前支持三种模式：fill、center_crop和hold_center_crop，默认为center_crop模式。fill 表示填充满屏幕，若图片比例与屏幕不匹配会导致图片拉伸。 center_crop 表示按照屏幕宽高的比例进行缩放，使图片居中充满整个屏幕，多余部分裁剪。 hold_center_crop 表示图片不进行缩放处理，居中裁剪脚本中设置的w、h区域。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="supportApng" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>当且仅当该参数为true时，&lt;Texture&gt;支持Apng类型的资源文件播放，此时资源文件类型为APNG，后缀名应为".png"。需自行制作.png格式的APNG动图。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="apngLoopCount" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>APNG动画循环播放次数，当该参数为-1时，无限循环播放APNG动画。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,94 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="CollisionWorld">
+        <xs:attribute name="vecX" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>刚体世界x方向的重力数值，支持表达式，默认值为0。该值大于0物体向右移动，小于0物体向左移动，为0时无x轴位移效果。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="vecY" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>刚体世界y方向的重力数值，支持表达式，默认值为0。该值大于0物体向下移动，小于0物体向上移动，为0时无y轴位移效果。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="x" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>刚体世界左上角的x坐标，默认值为0。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="y" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>刚体世界左上角的y坐标，默认值为0。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>刚体世界的宽度。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>刚体世界的高度。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="worldImgSrc" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>刚体世界的背景图。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="worldImgType" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>刚体世界背景图的适配方式，默认填满view的为fit_xy，居中截取为center_crop。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="defBourderLine" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>刚体世界四周是否添加不可见边界刚体线，默认为0不添加，非零则添加。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="minShake" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>触发摇一摇感应力的最小值，值越大越难触发摇一摇，默认无限大即不触发摇一摇，建议取值18-50。当手机摇一摇的幅度达到该值后，刚体会受到手机摇动方向的力。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="shakeCoef" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>摇一摇感应力系数，默认为1。刚体受力为minShake与shakeCoef的乘积，建议取值范围【-10000000——10000000】，负值表示受力方向相反。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="minMicroDb" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>触发手机麦克风音量感应力的最小值，值越大越难触发麦克风音量感知，默认无限大即不触发麦克风音量感知，建议取值58-80。当麦克风的音量达到该值后，刚体会受到手机屏幕垂直向上的力。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="microCoef" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>手机麦克风音量感应力系数，默认为1。刚体受力为minMicroDb与microCoef的乘积，建议取值范围【-10000000——10000000】，负值表示受力方向相反。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="accCoef" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>手机重力感应力系数，默认为0不受重力感应。刚体受力为重力感应力与accCoef的乘积，建议取值范围【-10000000——10000000】，负值表示受力方向相反。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="gwidth" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>支持按照手指滑动方向受力时，受力大小和方向的可视化图标的初始宽度。刚体设置了gesture属性且值为非0时，此刚体支持按照手指滑动方向受力移动。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="gheight" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>支持按照手指滑动方向受力时，受力大小和方向的可视化图标的初始高度。刚体设置了gesture属性且值为非0时，此刚体支持按照手指滑动方向受力移动。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="gsrc" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>支持按照手指滑动方向受力时，受力大小和方向的可视化图标的图片资源。刚体设置了gesture属性且值为非0时，此刚体支持按照手指滑动方向受力移动。手指滑动范围越长，图标显示的高度越长，因此存在图标拉升变形的情况，设计时需注意这一点。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visibility" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>大于0表示可见，小于等于0表示不可见。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

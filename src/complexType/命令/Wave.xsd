@@ -1,0 +1,198 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="VibrateCommand">
+        <xs:annotation>
+            <xs:documentation>
+                线性马达振动命令
+                与震动设置&lt;Vibrate&gt;相比，线性马达振动命令&lt;VibrateCommand&gt;支持触发振动的组件更多，支持实现的振动效果更丰富，
+                搭配酷炫动效或音乐，给用户带来无限“振”撼。
+                线性马达振动命令，有标签和多个子标签，集成在&lt;Trigger&gt;标签下。
+                支持触发线性马达振动命令的组件无限制，常用场景为点击按钮/滑动/亮屏触发线性马达振动。
+                支持系统预置和自定义振动两种模式，系统预置模式下可切换震动的类型；自定义振动模式下可自定义设置震动的时长、强弱和间隔时间。
+                线性马达振动命令有机型限制。
+                系统预置模式:
+                - 系统预置41种振动类型，可直接调用。每种振动类型的波形时长、强度和间隔时间是固定的，不可修改。
+                - 仅Mate30、Mate40、P40、P50系列手机支持。
+                自定义振动模式:
+                - 可自定义设置振动波形的时长、强度和间隔时间，非常灵活。
+                - 仅P50系列手机支持。
+                应用场景:
+                - 持续按压汽车油门，伴随振动和酷炫音效，带来汽车启动的无限振感。
+                - 点击杯子破碎、按压气球爆炸触发不同振感。
+                - 在屏幕上滑动不倒翁，根据不同的方位滑动触发不同的线性马达振动类型，带来不同的振感。
+
+                控制亮屏自动执行振动的变量名 defPlayVibrateId
+                manifest.xml中如果有申明var且name 为 defPlayVibrateId的变量，则每次亮屏会检测是否有VibrateCommand振动id与变量defPlayVibrateId值相等，如有相等则会自动执行对应的振动命令。参照示例3。
+
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="id" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    点击屏幕/滑动触发振动时，可不填。
+                    亮屏触发振动时，该id为必填。亮屏时变量defPlayVibrateId值与id值对应，值相等则触发对应的振动。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="define" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    define为是否启用自定义模式，false为执行系统预置，true为自定义模式，默认为false。
+                    当define="true"时，自定义振动标签&lt;Vibrate&gt;及其子标签&lt;Wave&gt;、&lt;Slice&gt;为必填。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="type" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    当define="true"时，可不填。
+                    当define="false"时，为必填，表示启用系统预置模式下的振动类型，其为固定的枚举值。
+                    haptic.grade.strength1，
+
+                    haptic.grade.strength2，
+
+                    haptic.grade.strength3，
+
+                    haptic.grade.strength4，
+
+                    haptic.grade.strength5，
+
+                    haptic.camera.focus，
+
+                    haptic.camera.gear_slip，
+
+                    haptic.camera.portrait_switch，
+
+                    haptic.camera.mode_switch，
+
+                    haptic.camera.long_press，
+
+                    haptic.common.button，
+
+                    haptic.common.charging，
+
+                    haptic.common.delete_long_press，
+
+                    haptic.common.fail_pattern1，
+
+                    haptic.common.fail_pattern2，
+
+                    haptic.common.long_press，
+
+                    haptic.common.long_press1，
+
+                    haptic.common.long_press2，
+
+                    haptic.common.notice，
+
+                    haptic.common.pinch，
+
+                    haptic.common.success，
+
+                    haptic.common.switch，
+
+                    haptic.common.threshold，
+
+                    haptic.common.upglide，
+
+                    haptic.mode.change，
+
+                    haptic.poweroff，
+
+                    haptic.slide.type1，
+
+                    haptic.slide.type2，
+
+                    haptic.slide.type3，
+
+                    haptic.slide.type4，
+
+                    haptic.slide.type5，
+
+                    haptic.slide.type6，
+
+                    haptic.common.long_press3，
+
+                    haptic.common.click_up，
+
+                    haptic.common.tick，
+
+                    haptic.common.double_click，
+
+                    haptic.common.click，
+
+                    haptic.volume.max，
+
+                    haptic.volume.min，
+
+                    haptic.notice.Arrow，
+
+                    haptic.clock.stopwatch。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+    <xs:complexType name="Vibrate">
+        <xs:annotation>
+            <xs:documentation>
+                自定义振动标签&lt;Vibrate&gt;为&lt;VibrateCommand&gt;的子标签，表示使用自定义振动模式。
+                当&lt;VibrateCommand&gt;中的define参数赋值为true时，必须使用&lt;Vibrate&gt;标签。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="loop" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    loop属性表示是否循环播放，true循环，false表示非循环。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+    <xs:complexType name="Wave">
+        <xs:annotation>
+            <xs:documentation>
+                自定义振动波形标签&lt;Wave&gt;为&lt;Vibrate&gt;的子标签，表示自定义振动模式下的振动波形。
+            </xs:documentation>
+        </xs:annotation>
+    </xs:complexType>
+
+    <xs:complexType name="Slice">
+        <xs:annotation>
+            <xs:documentation>
+                自定义振动波形标签&lt;Slice&gt;为&lt;Wave&gt;的子标签，表示每个振动波形。
+                一个&lt;Wave&gt;中可以有多个&lt;Slice&gt;，&lt;Slice&gt;的最大数目为64。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="time" type="xs:integer" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    不支持表达式，表示振动波形的时间间隔，类型为int类型，取值范围[0，1800000]，单位为ms。
+                    考虑到用户友好性，建议取值在1000以内。当前slice的time要大于等于上个slice的time+duration的值且time的值必须惟一。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="duration" type="xs:integer" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    不支持表达式，表示振动波形的时长，单位为ms，取值范围[0，1800000]。
+                    考虑到马达振动的持续时间以及自身器件特性，建议取值为5秒。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="intensity" type="xs:decimal" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    不支持表达式，表示振动波形强度，属性值为浮点类型，取值范围[0，1]。0代表振动强度为零，即不振动，数值越大则振动强度越大。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="type" type="xs:integer" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    不支持表达式，表示该波段振动波类型。只能填1（transient）和2（continuous），当前仅支持2类型。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,65 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="IntentCommand">
+        <xs:annotation>
+            <xs:documentation>
+                Intent命令
+                通过IntentCommand命令，可以跳转打开其他应用程序App。
+                说明:
+                - 除安全相机外，其他要记得加上解锁命令，否则只是在后台打开了，还要解锁才能看到。
+                应用场景:
+                - 在一间卧室里，点击桌子上的日历，可打开日历应用，点击柜子上的相机，可打开相机。
+                - 在负一屏显示可点击的快捷应用，点击其中一个，跳转到对应的应用。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="action" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    intent的action（参考应用示例）。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="category" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    intent需要设置的category（参考应用示例）。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="package" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    intent需要设置的的包名（参考应用示例）。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="class" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    intent需要设置的类名（参考应用示例）。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="condition" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    条件判断，支持表达式。当condition里的条件判断为非0或者为true时，该命令执行，为false或者0则不执行。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="delay" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    延迟，以毫秒记。延迟delay毫秒后执行该命令。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="delayCondition" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    延迟判断，为真则delay命令生效，否则失效。默认为true或者1时，表示可以延迟启动命令，如果false或者非1则不延迟执行。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

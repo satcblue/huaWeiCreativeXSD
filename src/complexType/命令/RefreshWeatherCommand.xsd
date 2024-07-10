@@ -1,0 +1,9 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="RefreshWeatherCommand">
+    <xs:annotation>
+        <xs:documentation>
+            RefreshWeatherCommand主要在需要手动刷新天气变量的值时使用。
+        </xs:documentation>
+    </xs:annotation>
+    </xs:complexType>
+</xs:schema>

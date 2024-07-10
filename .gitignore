@@ -1,0 +1,48 @@
+.DS_Store
+node_modules
+/dist
+target/
+*.classpath
+*.project
+*.settings
+*.log
+cms.iml
+#test/
+!modules/dao/src/test
+buge-act/src/test/
+!voicelive-*/**/src/test
+!buge-business/act-business/act-ali-theme/src/test
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+*.iml
+*.ipr
+*.iws
+.idea/
+
+#cache
+.cache
+buge-api/champion.iml~Stashed changes
+buge-user/user.iml~Stashed changes
+buge-voi-2/voi.iml~Stashed changes
+
+#jrebel
+rebel.xml
+/logs/
+
+dist/

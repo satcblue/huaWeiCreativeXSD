@@ -1,0 +1,38 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:include schemaLocation="../../complexType/视图/Text.xsd"/>
+    <xs:include schemaLocation="../../complexType/视图/PathItem.xsd"/>
+
+    <xs:include schemaLocation="../../element/2D基础动效/AlphaAnimation.xsd"/>
+    <xs:include schemaLocation="../../element/2D基础动效/PositionAnimation.xsd"/>
+    <xs:include schemaLocation="../../element/2D基础动效/RotationAnimation.xsd"/>
+    <xs:include schemaLocation="../../element/2D基础动效/SizeAnimation.xsd"/>
+    <xs:include schemaLocation="../../element/2D基础动效/SourcesAnimation.xsd"/>
+    <xs:include schemaLocation="../../element/2D基础动效/VariableAnimation.xsd"/>
+
+    <xs:element name="Text">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="Text">
+                    <xs:choice minOccurs="0" maxOccurs="unbounded">
+                        <xs:element ref="AlphaAnimation" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="PositionAnimation" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="RotationAnimation" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="SizeAnimation" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="SourcesAnimation" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="VariableAnimation" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element name="PathItem" minOccurs="0"
+                                    maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:complexContent>
+                                    <xs:extension base="PathItem">
+                                    </xs:extension>
+                                </xs:complexContent>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:choice>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

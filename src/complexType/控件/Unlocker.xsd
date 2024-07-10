@@ -1,0 +1,35 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Unlocker">
+        <xs:annotation>
+            <xs:documentation>
+                解锁
+                Unlocker是一个滑动解锁的命令，与滑动组件Slider用法类似，当起始点（StartPoint）的x,y点随手指移动落入EndPoint目标矩形区域时，松开手指则触发解锁。
+                应用场景:
+                - 用滑动动作，切西瓜，西瓜分半，触发解锁。
+                - 用滑动动作擦黑板，触发解锁。
+                - 用滑动动作，大雾散去，触发解锁。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="name" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    解锁控件的变量名，通过[name].move_y可以得到解锁部件在y轴的偏移量。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="bounceInitSpeed" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    回弹动画的初始速度(距离单位为像素，时间单位为秒)，支持表达式，最小100，默认值为0。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="bounceAcceleration" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    回弹动画的加速度(距离单位为像素，时间单位为秒)，支持表达式，最小10，默认值为0。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

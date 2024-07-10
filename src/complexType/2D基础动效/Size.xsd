@@ -1,0 +1,31 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Size">
+        <xs:annotation>
+            <xs:documentation>
+                基础命令，有针对一个元素，例如一张图缩放，也有多张图组成的帧动画，通过这些动画可以实现动画缩放效果。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="w" type="xs:int" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    图片的大小宽，正整数。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="h" type="xs:int" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    图片的大小高，正整数。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="time" type="xs:int" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    [0-~]，相对于起始帧的间隔时间（毫秒），不小于0。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

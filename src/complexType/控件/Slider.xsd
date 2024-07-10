@@ -1,0 +1,51 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Slider">
+        <xs:annotation>
+            <xs:documentation>
+                滑块
+                通过滑动来激活某些操作，Slider是一个滑动的命令，其规定了滑动的起始点(StartPoint)和结束点(EndPoint)，包括滑动时的速度和加速度等参数的值。
+                应用场景:
+                - 滑动解锁。
+                - 滑动进行下一帧动画。
+                - 滑动切换壁纸。
+                - 可制作翻书动作。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="name" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    滑动组件的名称。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="bounceInitSpeed" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    回弹动画的初始速度(距离单位为像素，时间单位为秒)，支持表达式，最小100，默认值为0。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="bounceAcceleration" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    回弹动画的加速度(距离单位为像素，时间单位为秒)，支持表达式，最小10，默认值为0。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="keyPoint" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    回弹点，可实现回弹多次的效果；默认值“0,0”即触发完回到开始效果。另外：如“0,0.7,0,0.5,0,0.2,0” 表示逐渐回弹到原点。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="always" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    当always的值变为true或1时，表示仅仅只显示这个滑块，其他的滑块全部隐藏
+                    ；当always的值变为false或0时，表示所有的滑块全部显示出来。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

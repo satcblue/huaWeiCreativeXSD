@@ -1,0 +1,39 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Trigger">
+        <xs:annotation>
+            <xs:documentation>
+                触发器
+                用来定义按钮、Unlocker、Slider等动作引发相关的操作，可以控制某元素的属性。其规定了触发的动作(action)，并且触发了一系列命令(Command)的执行。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="action" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    按钮动作： down (按下), up (抬起), double (双击)，resume（亮屏触发）,pause（熄屏触发），long（长按），click（点击）。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="target" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    控制目标名。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="property" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    属性名，目前支持：visibility 以后会增加其他属性控制。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="value" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    属性值，目前针对boolean有: true, false, toggle。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

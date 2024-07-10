@@ -1,0 +1,54 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Linear">
+        <xs:annotation>
+            <xs:documentation>
+                线性渐变
+                注意：
+
+                1.有面积的几何图形可同时设置描边和填充的颜色或渐变，线条类几何图形只支持设置描边；
+
+                2.若fillColor/strokeColor与FillGradient/StrokeGradient同时存在，则绘制FillGradient/StrokeGradient；
+
+                3.位移、透明度等动画需要写在渐变方式之前，否则无法解析到。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="x" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    渐变轴线(x , y，x1 , y1)，是参照图形的相对坐标x坐标，默认为0，单位为像素，支持表达式
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="y" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    渐变轴线(x , y，x1 , y1)，是参照图形的相对坐标y坐标，默认为0，单位为像素，支持表达式
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="x1" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    渐变轴线(x , y，x1 , y1)，是参照图形的相对坐标x1坐标，默认为0，单位为像素，支持表达式
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="y1" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    渐变轴线(x , y，x1 , y1)，是参照图形的相对坐标y1坐标，默认为0，单位为像素，支持表达式。注意：x，y，x1，y1不可同时全为0
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="tileMode" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    放射渐变平铺模式。
+                    - stretch ：渐变色在几何图形中从圆心向外拉伸渐变（默认）；
+                    - mirror ：渐变色以abbaab...镜像模式从圆心向外重复渐变；
+                    - loop：渐变色以ababab... 循环模式从圆心向外渐变
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

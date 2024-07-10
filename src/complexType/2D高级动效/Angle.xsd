@@ -1,0 +1,14 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Angle">
+        <xs:attribute name="isRandom" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>初始旋转角度是否随机，true/false。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="angle" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>-360-360整数，不随机时生效，给每个粒子统一赋予同一个角度的旋转，默认为0。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

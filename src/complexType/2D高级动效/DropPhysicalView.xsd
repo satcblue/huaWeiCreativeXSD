@@ -1,0 +1,22 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="DropPhysicalView">
+        <xs:sequence>
+        </xs:sequence>
+        <xs:attribute name="gravityX" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>x方向的重力数值，可以用数值表达式，默认值为0。该值大于0物体向右移动，小于0物体向左移动，为0时无x轴位移效果。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="gravityY" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>y方向的重力数值，可以用数值表达式，默认值为0。该值大于0物体向下移动，小于0物体向上移动，为0时无y轴位移效果。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="airDensity" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>空气密度，影响空气阻力的大小，值越大导致空气阻力越大，范围为正实数，默认值为12.93。面积较大的物体下落时所受的空气阻力较大，所以实际动效中w，h较小的物体比w，h大的物体移动速度略快一些。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

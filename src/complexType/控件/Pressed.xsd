@@ -1,0 +1,10 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Pressed">
+        <xs:annotation>
+            <xs:documentation>
+                按下状态
+                表示按钮在按下状态时显示的内容，可加入内容与Normal相同，区别是Button在正常状态的时候是非激活以及不可见状态。当按钮被按下的时候，Normal状态下的元素都被设置非激活和不可见，而Pressed状态下的元素都设置为激活和可见。
+            </xs:documentation>
+        </xs:annotation>
+    </xs:complexType>
+</xs:schema>

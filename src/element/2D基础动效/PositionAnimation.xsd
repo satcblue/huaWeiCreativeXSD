@@ -1,0 +1,26 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:include schemaLocation="../../complexType/2D基础动效/PositionAnimation.xsd"/>
+    <xs:include schemaLocation="../../complexType/2D基础动效/Position.xsd"/>
+
+    <xs:element name="PositionAnimation">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="PositionAnimation">
+                    <xs:choice minOccurs="0" maxOccurs="unbounded">
+                        <xs:element name="Position" minOccurs="0"
+                                    maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:complexContent>
+                                    <xs:extension base="Position">
+                                    </xs:extension>
+                                </xs:complexContent>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:choice>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

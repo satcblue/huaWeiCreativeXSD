@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative" xmlns="https://www.satcblue.cn/XMLSchema/HuaWeiCreative" elementFormDefault="qualified">
+  <xs:include schemaLocation="../../element/控件/Normal.xsd"/>
+  <xs:include schemaLocation="../../element/控件/EndPoint.xsd"/>
+  <xs:include schemaLocation="../../element/控件/NormalState.xsd"/>
+  <xs:include schemaLocation="../../element/控件/Pressed.xsd"/>
+  <xs:include schemaLocation="../../element/控件/Button.xsd"/>
+  <xs:include schemaLocation="../../element/控件/ReachedState.xsd"/>
+  <xs:include schemaLocation="../../element/控件/Unlocker.xsd"/>
+  <xs:include schemaLocation="../../element/控件/PressedState.xsd"/>
+  <xs:include schemaLocation="../../element/控件/StartPoint.xsd"/>
+  <xs:include schemaLocation="../../element/控件/Slider.xsd"/>
+  <xs:include schemaLocation="../../element/控件/Trigger.xsd"/>
+  <xs:include schemaLocation="../../element/控件/Path.xsd"/>
+  <xs:include schemaLocation="../../element/控件/Triggers.xsd"/>
+</xs:schema>

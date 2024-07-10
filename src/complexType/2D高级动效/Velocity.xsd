@@ -1,0 +1,33 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Velocity">
+        <xs:attribute name="isRandom" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>初始速度是否随机，true/false。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="velocityX" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    x方向初始速度，默认为0，支持表达式。不随机则x轴初始速度为该值，随机则x轴初始速度为lowestVelocityX+[(0,velocityX)间随机值]。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="velocityY" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    y方向初始速度，默认为0，支持表达式.不随机则y轴初始速度为该值，随机则x轴初始速度为lowestVelocityY+[(0,velocityY)间随机值]。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="lowestVelocityX" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>isRandom等于true时生效，为x轴随机初始速度最低值，默认为0，支持表达式。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="lowestVelocityY" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>isRandom等于true时生效，为y轴随机初始速度最低值，默认为0，支持表达式。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

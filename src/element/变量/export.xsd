@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative" xmlns="https://www.satcblue.cn/XMLSchema/HuaWeiCreative" elementFormDefault="qualified">
+  <xs:include schemaLocation="../../element/变量/VarArray.xsd"/>
+  <xs:include schemaLocation="../../element/变量/Var.xsd"/>
+  <xs:include schemaLocation="../../element/变量/Array.xsd"/>
+</xs:schema>

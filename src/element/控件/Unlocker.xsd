@@ -1,0 +1,20 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:include schemaLocation="../../complexType/控件/Unlocker.xsd"/>
+    <xs:include schemaLocation="../../element/控件/StartPoint.xsd"/>
+    <xs:include schemaLocation="../../element/控件/EndPoint.xsd"/>
+
+    <xs:element name="Unlocker">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="Unlocker">
+                    <xs:choice minOccurs="0" maxOccurs="unbounded">
+                        <xs:element ref="StartPoint" minOccurs="0" maxOccurs="1"/>
+                        <xs:element ref="EndPoint" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:choice>
+                </xs:extension>
+            </xs:complexContent>
+
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

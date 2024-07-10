@@ -1,0 +1,24 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Alpha">
+        <xs:annotation>
+            <xs:documentation>
+                动画透明度效果。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="a" type="xs:int" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    [0-255]，透明度0-255, 小于等于0不显示，正数值。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="time" type="xs:int" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    [0-~]，相对于起始帧的间隔时间（毫秒），不小于0。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

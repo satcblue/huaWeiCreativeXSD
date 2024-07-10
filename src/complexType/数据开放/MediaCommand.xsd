@@ -1,0 +1,65 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="MediaCommand">
+        <xs:annotation>
+            <xs:documentation>
+                在使用音乐控制命令&lt;MediaCommand&gt;时，需要先声明音乐控制器&lt;MediaControl&gt;。
+
+                支持的命令:
+
+                - mediaPlay：音乐播放命令
+                - mediaPause：音乐暂停命令
+                - mediaLike：音乐收藏命令（仅华为音乐支持）
+                - mediaDislike：音乐取消收藏命令（仅华为音乐支持）
+                - skipToPrevious：上一首
+                - skipToNext：下一首
+                - addVoice：增加音量
+                - subVoice：减少音量
+                - mediaRepeatMode：修改播放模式
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="command" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    command可以设置的值如下：
+
+                    mediaPlay：音乐播放命令
+
+                    mediaPause：音乐暂停命令
+
+                    mediaLike：音乐收藏命令（仅华为音乐支持）
+
+                    mediaDislike：音乐取消收藏命令（仅华为音乐支持）
+
+                    skipToPrevious：上一首
+
+                    skipToNext：下一首
+
+                    addVoice：增加音量
+
+                    subVoice：减少音量
+
+                    mediaRepeatMode：修改播放模式
+
+                    说明
+                    mediaLike和mediaDislike仅华为音乐支持。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="voiceStep100" type="xs:int" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    音量变化的步进值，默认为10，支持表达式。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+
+        <xs:attribute name="condition" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    触发条件，1为触发，支持表达式。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

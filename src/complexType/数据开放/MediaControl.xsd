@@ -1,0 +1,87 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="MediaControl">
+        <xs:annotation>
+            <xs:documentation>
+                开放以下音乐数据和播控功能，支持在锁屏、桌面和桌面万象小组件中使用以制作创意主题。
+
+                音乐数据
+
+                - 歌曲名称
+                - 专辑封面
+                - 艺术家名称
+                - 歌词
+                - 歌曲风格
+
+                华为音乐App:
+
+                ✓ 歌曲名称
+                ✓ 专辑封面
+                ✓ 艺术家名称
+                ✓ 歌词
+                ✓ 歌曲风格
+
+                三方音乐App:
+
+                ✓ 歌曲名称
+                ✓ 专辑封面
+                ✓ 艺术家名称
+                × 歌词
+                × 歌曲风格
+
+                播控功能:
+
+                - 暂停/播放
+                - 音量调节
+                - 切换歌曲
+                - 歌词开关
+                - 震动开关
+                - 收藏/取消收藏
+                - 播放模式
+                - 进度条
+
+                华为音乐App:
+
+                ✓ 暂停/播放
+                ✓ 音量调节
+                ✓ 切换歌曲
+                ✓ 歌词开关
+                ✓ 震动开关
+                ✓ 收藏/取消收藏
+                ✓ 播放模式
+                ✓ 进度条
+
+                三方音乐App:
+
+                ✓ 暂停/播放
+                ✓ 音量调节
+                ✓ 切换歌曲
+                × 歌词开关
+                ✓ 震动开关
+                × 收藏/取消收藏
+                × 播放模式
+                ✓ 进度条
+
+                功能说明
+                第三方音乐App支持：歌曲名称、专辑封面、艺术家名称、播放/暂停、音量调节、切换歌曲、歌词开关、震动开关和进度条。华为音乐App额外支持：歌曲风格、歌词、收藏/取消收藏和播放模式。
+                如需使用华为音乐App的歌曲风格、歌词、收藏/取消收藏和播放模式，华为音乐App需要开启储存权限（设置>应用管理>华为音乐>权限>存储）并签署用户协议，并要求华为音乐App12.11.23.302版本以上，主题App12.0.14.300版本以上。
+                设计师需要在预览图中明确告知用户：歌曲风格、歌词、收藏/取消收藏和播放模式仅华为音乐App支持，同时还需考虑用户使用第三方音乐App时不支持这些数据和播控功能的情况。
+                在锁屏或桌面万象小组件中使用了音乐数据开放功能的主题，必须配置华为音乐App的跳转链接，可以同时配置其他音乐App的跳转链接。
+                &lt;!--跳转至华为音乐App--&gt;
+                &lt;Button y="0" x="0" w="960" h="1550"&gt;
+                &lt;Trigger action="double"&gt;
+                &lt;IntentCommand action="android.intent.action.MAIN" class="com.android.mediacenter.PageActivity" package="com.android.mediacenter"/&gt;
+                &lt;/Trigger&gt;
+                &lt;/Button&gt;
+                在锁屏中，建议不制作播控功能，避免与系统的播控弹窗重叠。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="packageName" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    指定音乐App的包名，当前仅支持指定华为音乐App（com.huawei.music）。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

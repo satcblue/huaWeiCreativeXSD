@@ -1,0 +1,38 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="ParticleCommand">
+        <xs:annotation>
+            <xs:documentation>
+                流体增减命令 配合流体动效使用，实现动态增加或减少流体数量。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="type" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    仅支持填写“add”(增加流体数量)或“delete"(减少流体数量)。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="color" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    新增流体的颜色值，支持argb函数。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="condition" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    条件判断，支持表达式。当condition里的条件判断为非0或者为true时，该命令执行，为false或者0则不执行。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="deleteNum" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    需要删除的流体数量，最高为50000，支持表达式。当type为delete时必填。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

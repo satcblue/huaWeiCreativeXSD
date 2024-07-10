@@ -1,0 +1,15 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:include schemaLocation="../../element/控件/Trigger.xsd"/>
+    <xs:include schemaLocation="../../element/控件/Triggers.xsd"/>
+
+    <xs:element name="ExternalCommands">
+        <xs:complexType>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element ref="Trigger" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element ref="Triggers" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

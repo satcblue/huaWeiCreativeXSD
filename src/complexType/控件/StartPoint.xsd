@@ -1,0 +1,53 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="StartPoint">
+        <xs:annotation>
+            <xs:documentation>
+                起始点
+                起始点标签，包括了x, y, w,
+                h坐标长宽以及Normal、Pressed、Reached等状态的View集合和声音文件，也包括了Intent相关操作。注意:每个Slider仅能包括一个StartPoint。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="x" type="xs:decimal" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    起始点相对于屏幕左上角的x坐标。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="y" type="xs:decimal" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    起始点相对于屏幕左上角的y坐标。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="w" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    起始点响应区域的大小，宽。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="h" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    起始点响应区域的大小，高。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="normalSound" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    普通状态下播放的音效
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="pressedSound" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    解锁控件在press状态播放的音效
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

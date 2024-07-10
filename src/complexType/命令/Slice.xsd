@@ -1,0 +1,41 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Slice">
+        <xs:annotation>
+            <xs:documentation>
+                自定义振动波形标签&lt;Slice&gt;为&lt;Wave&gt;的子标签，表示每个振动波形。
+                一个&lt;Wave&gt;中可以有多个&lt;Slice&gt;，&lt;Slice&gt;的最大数目为64。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="time" type="xs:integer" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    不支持表达式，表示振动波形的时间间隔，类型为int类型，取值范围[0，1800000]，单位为ms。
+                    考虑到用户友好性，建议取值在1000以内。当前slice的time要大于等于上个slice的time+duration的值且time的值必须惟一。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="duration" type="xs:integer" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    不支持表达式，表示振动波形的时长，单位为ms，取值范围[0，1800000]。
+                    考虑到马达振动的持续时间以及自身器件特性，建议取值为5秒。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="intensity" type="xs:decimal" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    不支持表达式，表示振动波形强度，属性值为浮点类型，取值范围[0，1]。0代表振动强度为零，即不振动，数值越大则振动强度越大。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="type" type="xs:integer" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    不支持表达式，表示该波段振动波类型。只能填1（transient）和2（continuous），当前仅支持2类型。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

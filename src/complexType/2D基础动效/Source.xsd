@@ -1,0 +1,24 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Source">
+        <xs:annotation>
+            <xs:documentation>
+                基础命令，只有图片支持帧动画，图片帧动画稍有不同，无插值。可以设置图片播放之间的间隔时间。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="src" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    每一帧图片的文件名，该src值不可为空。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="time" type="xs:int" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    [0-~]，相对于起始帧的间隔时间（毫秒），也是动画持续时间，帧图片人肉眼能识别时间延时为300ms左右，不小于0。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

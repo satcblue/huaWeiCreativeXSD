@@ -1,0 +1,37 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Mask">
+        <xs:annotation>
+            <xs:documentation>
+                遮罩
+                该功能需要与Image共同使用，对Image标签中的图片（tgt.png）和mask标签中的图片（ori.png）进行混合，支持12种混合模式。例如，通过混合可起到遮罩效果，即按照ori图片对tgt图片进行裁剪，使tgt图片显示与ori图片重叠区域的内容。通过设置align参数，可以达到tgt图片移动但ori图片不移动的效果。
+                应用场景:
+                - 可用于给图片增加一个蒙版的效果。
+                - 可用于对图片的一部分进行遮罩。
+                - 固定遮罩可制作局部展示，做头像。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="src" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    src为遮罩图片的源地址。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="align" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    取值为absolute或relative。其中，absolute表示绝对位置，即ori图片不随着tgt图片移动而移动，遮罩(Mask)x,y坐标为相对于屏幕左上角的坐标；如果为相对位置relative，则ori会随着tgt而移动，遮罩(Mask)x,y坐标为相对于图片左上角的坐标。默认情况下为relative。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="hybridMode" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    设置两张图片之间的混合模式，共有12种混合模式供选择：clear(0)，
+                    ori(1)，tgt(2)，oriOver(3)，tgtOver(4)，oriIn(5)，tgtIn(6)，oriOut(7)，tgtOut(8)，oriATop(9)，tgtATop(10)，xor(11)。
+                    可以通过输入字符串或者对应的数字编号来选择混合模式，默认为6。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

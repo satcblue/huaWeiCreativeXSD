@@ -1,0 +1,20 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="MediaIcon">
+        <xs:annotation>
+            <xs:documentation>
+                获取到音乐App中的专辑封面图片时，展示获取到的专辑封面。
+                未获取到音乐App中的专辑封面图片时，展示通过&lt;MediaIcon&gt;设置的默认专辑封面。
+                <!-- todo               -->
+                支持图片&lt;Image&gt;的参数设置。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="src" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    没有歌曲封面时展示的默认图。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

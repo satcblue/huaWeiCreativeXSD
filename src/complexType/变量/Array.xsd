@@ -1,0 +1,28 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Array">
+        <xs:annotation>
+            <xs:documentation>
+                控件数组
+                能够同样重复多条目的生成图片Image、文字Text等界面控件。
+                注意：在该控件中使用Text控件，需使用textExp的方式获取数组中文本数据，如下面XML规范及用例中所写。
+                应用场景:
+                - 可用于游戏中点击界面出现一组数值，再次点击刷新数值。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="indexFlag" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    代表索引的名称，能够在下方的元素中引用。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="frequency" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    表示重复生成元素的次数。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

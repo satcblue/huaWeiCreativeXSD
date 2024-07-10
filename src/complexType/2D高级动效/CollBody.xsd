@@ -1,0 +1,129 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="CollBody">
+        <xs:attribute name="id" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>区分不同刚体的身份id，该值的唯一要求是不能重复，即不同的CollBody不能用同一个id值。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="type" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>刚体类型，2为动态刚体，其他值或默认值为静态刚体。动态刚体：受力会运动，可以设置运动速度。静态刚体：静止不动，质量无穷大的刚体。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="shape" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>刚体的形状，1是圆形，其他值或者默认值为方形。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="imgsrc" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>刚体的背景图。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="x" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>刚体的初始坐标x。此初始坐标x，以刚体世界&lt;CollisionWorld&gt;左上角为原点（0,0）计算，而不是以手机屏幕左上角为原点计算。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="y" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>刚体的初始坐标y。此初始坐标y，以刚体世界&lt;CollisionWorld&gt;左上角为原点（0,0）计算，而不是以手机屏幕左上角为原点计算。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>刚体的宽度，方形刚体必填。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>刚体的高度，方形刚体必填。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="radius" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>刚体的半径，圆形刚体必填。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="friction" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>刚体的摩擦力系数，默认0.5。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="restitution" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>刚体的恢复系数（碰撞后反弹系数），默认0.5。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="density" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>刚体的密度，默认0.5。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="forceX" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>刚体创建时x方向的初始受力值，默认0，建议取值范围【-10000000——10000000】，正负值表示方向相反。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="forceY" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>刚体创建时y方向的初始受力值，默认0，建议取值范围【-10000000——10000000】，正负值表示方向相反。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="vx" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>刚体创建时x方向的初始速度，默认0，建议取值范围【-10000000——10000000】，正负值表示方向相反。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="vy" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>刚体创建时y方向的初始速度，默认0，建议取值范围【-10000000——10000000】，正负值表示方向相反。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="isActive" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>刚体属性，0为非刚体，其他值及默认值1为刚体。刚体不能被穿过，碰撞时反弹。非刚体可被穿过。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="musicSrc" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>被碰撞后播放音乐的资源路径，mp3资源，建议资源不大于2M。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="musicloop" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>是否循环播放音乐，默认0播放一次，-1为无限循环，其他值为播放musicloop+1次。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="vibrateTime" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>被碰撞后产生振动效果时长，单位毫秒。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="statevar" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>刚体碰撞状态监听变量，该刚体碰撞时此变量取值为1，碰撞前和碰撞后取值为0。给statevar设置任意且唯一的变量名，如statevar="body_5_state"，则通过#body_5_state即可获取该刚体的碰撞状态值。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="clickable" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>是否支持点击执行初始受力值和初始速，默认值为0不支持，1为支持。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="gesture" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>是否支持按照手指滑动方向受力移动，默认值为0表示不支持，其他值为支持。刚体受力为 f*gesture，f为对应刚体世界的gscr手势力。手指滑动范围越长，施加给刚体的力越大。支持按照手指滑动方向受力时，受力大小和方向可以通过图标可视化显示出来：手指滑动的力越大，图标长度越长；图标的方向为手指滑动的方向。此图标的初始宽度、初始高度和图片资源分别通过刚体世界&lt;CollisionWorld&gt;中的gwidth、gheight和gsrc设置。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="opx" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>获取刚体实时的x坐标。给opx设置任意且唯一的变量名，如opx="body_1_x"，则通过#body_1_x即可获取该刚体实时的x坐标。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="opy" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>获取刚体实时的y坐标。给opx设置任意且唯一的变量名，如opy="body_1_y"，则通过#body_1_y即可获取该刚体实时的y坐标。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

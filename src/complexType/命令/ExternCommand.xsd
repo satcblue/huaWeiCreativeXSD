@@ -1,0 +1,39 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="ExternCommand">
+        <xs:annotation>
+            <xs:documentation>
+                通用命令
+                通用命令ExternCommand，用来向外部程序发送命令。目前仅能够支持解锁命令(仅在锁屏中有效)用这个命令可以实现解锁操作。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="command" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    命令名，目前可以使用的一种命令是解锁命令unlock(仅在锁屏中有效)。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="condition" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    条件判断该Command是否执行，支持表达式。仅当值为非0或者为true时，该命令执行。为false或者0则不执行。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="delay" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    延迟，单位ms。延迟delay毫秒后执行该命令。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="delayCondition" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    延迟判断，为真则delay命令生效，否则失效。默认为true或者1时，表示可以延迟启动命令，如果false或者非1则不延迟执行。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

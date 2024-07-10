@@ -1,0 +1,19 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="AngleVelocity">
+        <xs:attribute name="isRandom" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>角速度是否随机，true/false，默认false。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="angleVelocity" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>物体旋转角速度，范围为-360-360，默认为0，支持表达式。不随机则物体的旋转角度为该值，如果随机则物体旋转角度为lowestAngleVelocity+[(0,angleVelocity)间随机值]。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="lowestAngleVelocity" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>物体最低旋转角速度，范围为-360-360，默认为0，支持表达式。仅当isRandom等于true时生效，为随机速度的最小值。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

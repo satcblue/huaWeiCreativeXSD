@@ -1,0 +1,18 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:include schemaLocation="../../complexType/视图/Radial.xsd"/>
+    <xs:include schemaLocation="../../element/视图/GradientPoint.xsd"/>
+    <xs:element name="Radial">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="Radial">
+                    <xs:choice minOccurs="0" maxOccurs="unbounded">
+                        <xs:element ref="GradientPoint" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:choice>
+                </xs:extension>
+            </xs:complexContent>
+
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

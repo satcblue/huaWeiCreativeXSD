@@ -1,0 +1,61 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Weather">
+        <xs:annotation>
+            <xs:documentation>
+                天气数据开放&lt;Weather&gt;
+                开放天气App中天气相关数据：配置Weather标签后，在Weather标签中声明Var变量并使用指定的变量名，即可声明气象、空气质量指数、温度、湿度、风向、日出日落时间、月出月落时间、穿衣指数、运动指数、感冒指数、洗车指数等天气数据对应的变量。变量支持默认值，如果获取到实际天气情况会更新该值。
+                功能说明:
+                - 目前该功能暂时只支持国内，后续支持海外会另行通知。
+                - 天气数据来源于华为天气app，使用前请确保华为天气app已使用，并有当前定位城市的天气信息。
+                - 当前天气信息的更新频率为应用时立即更新一次，应用后1小时左右更新一次。
+                - 将主题app版本更新至12.0.12.300之后，下载天气类主题无需授权位置信息。
+                使用蓝牙耳机数据相关变量，需要首先声明&lt;BluetoothBattery/&gt;。
+                XML规范:
+                &lt;Weather&gt;
+                &lt;Var name="Weather.today.weatherIcon" expression="0" type="int"/&gt;
+                &lt;Var name="Weather.today.aqivaluetext" expression="'轻度污染'" type="string"/&gt;
+                &lt;Var name="Weather.yesterday.weatherIcon" expression="4" type="int"/&gt;
+                &lt;Var name="Weather.yesterday.aqivaluetext" expression="'良好'" type="string"/&gt;
+                &lt;Var name="Weather.tomorrow.weatherIcon" expression="13" type="int"/&gt;
+                &lt;Var name="Weather.tomorrow.aqivaluetext" expression="'优质'" type="string"/&gt;
+                &lt;/Weather&gt;
+                说明:
+                只有在Weather标签中声明Var变量并使用指定的变量名，才能获取到实际的天气数据。Var用法参照自定义变量&lt;Var&gt;，天气变量名称参照天气变量名称说明表。
+                在此只列举今天的数据，昨天和明天的数据只需要将today改成yesterday和tomorrow即可。
+                部分数据不支持昨天和明天，文档列表中已有详细说明。
+                说明:
+                - Weather.today.weatherIcon: 数值，气象码。
+                - Weather.today.weatherIconDes: 字符串，气象描述。
+                - Weather.today.aqivalue: 数值，空气质量指数值：1. 优质；2. 良好；3. 轻度污染；4. 中度污染；5. 重度污染；6. 严重污染；0. 未知。
+                - Weather.today.aqivaluetext: 字符串，空气质量等级划分枚举值：优质；良好；轻度污染； 中度污染；重度污染；严重污染。
+                - Weather.today.currentTem: 数值，当前温度。
+                - Weather.today.maxtemp: 数值，最高温度。
+                - Weather.today.mintemp: 数值，最低温度。
+                - Weather.today.humidity: 字符串，湿度。
+                - Weather.today.winddir: 字符串，风向枚举值：NE，E，SE， S，SW，W，N，NW。
+                - Weather.today.winddirDes: 字符串，风向描述：NE 东北风，E 东风，SE 东南风， S 南风，SW 西南风，W 西风，N 北风，NW 西北风。
+                - Weather.today.sunRise: 字符串，日出时间，格式为HH:mm，例如06:05。
+                - Weather.today.sunSet: 字符串，日落时间，格式为HH:mm，例如18:05。
+                - Weather.today.moonRise: 字符串，月出时间，格式为HH:mm，例如18:05。
+                - Weather.today.moonSet: 字符串，月落时间，格式为HH:mm，例如06:05。
+                - Weather.today.dressingLevel: 数值，穿衣指数：1 羽绒服-寒冷；2 厚外套-冷；3 毛衣-较冷；4 薄外套-较舒适；5 长袖-舒适；6 短袖-热；7 短袖-炎热。
+                - Weather.today.sportsLevel: 数值，运动指数：1 适宜运动；2 较适宜运动；3 较不宜运动。
+                - Weather.today.coldLevel: 数值，感冒指数：1 感冒少发；2 感冒较易发；3 感冒易发；4 感冒极易发热。
+                - Weather.today.carWashLevel: 数值，洗车指数：1 不宜；2 较不宜；3 较适宜；4 适宜。
+                使用说明:
+                可以搭配天气数据刷新命令&lt;RefreshWeatherCommand&gt;来刷新天气数据。
+                在锁屏和桌面万象小组件中使用天气数据变量时，需要通过&lt;IntentCommand&gt;的方式跳转至天气App，以便用户在想了解更多天气信息的时候，可以直接跳转至系统天气App，提升用户体验。
+                &lt;Button y="0" x="0" w="940" h="940"&gt;
+                &lt;Trigger action="click"&gt;
+                &lt;IntentCommand action="android.intent.action.MAIN" package="com.huawei.android.totemweather" condition="1" class="com.huawei.android.totemweather.WeatherHome"/&gt;
+                &lt;/Trigger&gt;
+                &lt;/Button&gt;
+                如果使用了&lt;Weather&gt;标签并定义了天气变量，可以通过全局变量weatherRespCode的值，判断天气数据是网络返回值还是默认值：全局变量weatherRespCode的值为0表示默认值，1表示网络返回值。
+                &lt;Text x="30" y="100" alignV="top" color="#ffffff" size="30" format="数据状态0默认1接口返回值: %s" width="1000" autoLineFeed="true" paras="#weatherRespCode"/&gt;
+                天气变量全局持久化:
+                当桌面用到天气数据变量时，使用globalPersist参数并赋值为"true"即开启天气变量全局持久化，实现桌面天气数据与锁屏保持一致。
+            </xs:documentation>
+        </xs:annotation>
+    </xs:complexType>
+
+</xs:schema>

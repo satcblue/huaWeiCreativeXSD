@@ -1,0 +1,58 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="CountDownTime">
+        <xs:annotation>
+            <xs:documentation>
+                能够计算目前时间到另外一个日期时间所剩余的时间，提供了多个不同粒度的时间显示以及不同的目标日期的设定方法。
+                注意:
+                - 无论是过去的时间还是将来还剩下来的时间的输出都是正值，方便自定义文字的输出。
+                - unit
+                中hour、minute、second等只包含不满一个周期的时间，即hour范围为0-23、minute为0-59、second为0-59。如果需要全部计算请使用后面带Only的unit字段。
+                - 所有填写的日期必须是真实存在的日期。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="name" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    设定全局变量的名称，能够使用该名称对全局变量进行值的设置和获取，注意使用全局变量一定要在声明之后。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="countDownType" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    输入日期的类型，分为concrete和loop。
+                    - concrete: 固定日期的倒计时 (例如: 2020-01-01, 2020-01-01 09:00 计算为绝对值)
+                    - loop: 循环日期的倒计时
+                    1. 每年日期 (例如: 01-01)
+                    2. 每月日期 (例如: 01)
+                    3. 每周 (例如: Sunday, Wednesday 等星期全称)
+                    4. 相对日期 (例如: yesterday, tomorrow, theDayAfterTomorrow, theDayBeforeYesterday)
+                    5. 每天时间 (例如: 09:00)
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="date" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    目标日期，根据不同的日期或者时间的格式，结合类型判断目标时间。日期值必须为正常存在的日期。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="unit" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    粒度单位，提供不同粒度的倒计时显示，默认为day。选项包括：
+                    1. day 天
+                    2. hour 小时 (范围为0-23)
+                    3. minute 分钟 (范围为0-59)
+                    4. second 秒 (范围为0-59)
+                    5. hourOnly 将剩余时间全部转化成小时
+                    6. minuteOnly 将剩余时间全部转化成分钟
+                    7. secondOnly 将剩余时间全部转化成秒
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

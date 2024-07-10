@@ -1,0 +1,14 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Item">
+        <xs:attribute name="src" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>图片的源路径。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="count" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>物体的数量，正整数，默认为0。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

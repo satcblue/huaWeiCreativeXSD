@@ -1,0 +1,98 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Group">
+        <xs:annotation>
+            <xs:documentation>
+                视图组
+                Group作为一个若干子控件元素的视图组，可以包住他元素，子控件元素比如图片Image、按钮Button、文字Text、时间DateTime等元素。 视图组内可以调整坐标以及宽与高，亦可以调整多个元素的位置和大小；此外Group可以添加各种基础动效动画，比如位移PositionAnimation、旋转RotationAnimation、透明度AlphaAnimation、缩放SizeAnimation等。
+                应用场景:
+                - 可以用于设置日期的显示。
+                - 可以将两张图片组合到一起进行位移旋转动画。
+                - 可用于游戏中的两个人物同时进行多种动画，实现打斗场景。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="name" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    组控件的名称。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="x" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    相对于屏幕左上角的x坐标。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="y" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    相对于屏幕左上角的y坐标。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="w" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    容器宽。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="h" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    容器高。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="alpha" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    透明度，0-255,小于等于0不显示。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="angle" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    旋转角度，一周360度。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visibility" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    元素可见性，支持表达式 &lt;= 0 不可见， &gt; 0可见，true为可见，false为不可见。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="clip" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    缺省为false；裁剪设置true则是测量整个Group长宽而不是测量元素的长宽，会裁剪掉超出w h标注范围的内容，不给予显示；设置为false测量元素的大小。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="layered" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    分层，设为true时，如可以对多图片进行混合处理，这个时候group中的最后一个Image需要具有hybridMode属性，前面的view都不能有hybridMode属性。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="align" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    水平方向对齐方式，默认为left，可选参数为left,center,right；使用时如果子view有自身的x坐标，则不会受Group设置的align参数影响，即子view的x坐标优先级大于Group的align参数。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="alignV" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    垂直方向对齐方式，默认为top，可选参数为top,center,bottom；使用时如果子view有自身的Y坐标，则不会受Group设置的alignV参数影响，即子view的y坐标优先级大于Group的alignV参数。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

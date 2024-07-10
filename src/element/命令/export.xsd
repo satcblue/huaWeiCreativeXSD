@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative" xmlns="https://www.satcblue.cn/XMLSchema/HuaWeiCreative" elementFormDefault="qualified">
+  <xs:include schemaLocation="../../element/命令/Command.xsd"/>
+  <xs:include schemaLocation="../../element/命令/CycleCommand.xsd"/>
+  <xs:include schemaLocation="../../element/命令/RefreshWeatherCommand.xsd"/>
+  <xs:include schemaLocation="../../element/命令/VideoCommand.xsd"/>
+  <xs:include schemaLocation="../../element/命令/SoundCommand.xsd"/>
+  <xs:include schemaLocation="../../element/命令/ExternalCommands.xsd"/>
+  <xs:include schemaLocation="../../element/命令/CollBodyCommand.xsd"/>
+  <xs:include schemaLocation="../../element/命令/ExternCommand.xsd"/>
+  <xs:include schemaLocation="../../element/命令/IntentCommand.xsd"/>
+  <xs:include schemaLocation="../../element/命令/ParticleCommand.xsd"/>
+  <xs:include schemaLocation="../../element/命令/GroupCommands.xsd"/>
+  <xs:include schemaLocation="../../element/命令/VariableCommand.xsd"/>
+  <xs:include schemaLocation="../../element/命令/VibrateCommand.xsd"/>
+</xs:schema>

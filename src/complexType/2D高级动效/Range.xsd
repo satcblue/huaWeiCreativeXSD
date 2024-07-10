@@ -1,0 +1,11 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Range">
+        <xs:attribute name="rect" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    指定在该矩形区域内可生成跟手粒子，示例：rect="left,top,right,bottom"，表示矩形左上右下对应的x、y坐标，支持在PathData中设置多个区域。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

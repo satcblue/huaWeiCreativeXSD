@@ -1,0 +1,25 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="MeshImage">
+        <xs:attribute name="mesh" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>用英文逗号分开的两个正整数，表示图片x,y轴上划分的网格数，如："20,20"表示图片x,y轴上分别划分20个网格。x,y轴网格数取值范围为[2,屏幕宽度/高度的二分之一]的整数，且x,y轴网格数至少有一个大于等于2。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="center_point" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>网格中心点编号，可指定具体数字。不设置时程序默认计算公式为：(int) (((meshX+ 1) * (meshY+ 1)) / 2 + 0.5）。如：mesh="6,6"，共划分为36个网格，共49个顶点，则第25个顶点为中心点。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="sensor" type="xs:boolean" use="optional">
+            <xs:annotation>
+                <xs:documentation>是否支持通过加速度传感器来控制网格化的位移、旋转.、缩放、透明度动效。true/false，默认为false。为true时，晃动手机触发动效开始。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="src" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>图片资源名称，支持变量，如@abc。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

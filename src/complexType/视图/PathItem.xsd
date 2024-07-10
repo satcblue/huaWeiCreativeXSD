@@ -1,0 +1,45 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="PathItem">
+        <xs:annotation>
+            <xs:documentation>
+                表示一小段路径
+                注意：controlX, controlY 仅在type类型为quadTo时生效，为lineTo时无须设置。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="type" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    type表示路径类型（quadTo或者lineTo）
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="controlX" type="xs:positiveInteger" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    表示路径控制点的横坐标（路径控制点类似PS中钢笔工具两点之间锚点的位置坐标，用于控制弧度大小）
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="controlY" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    表示路径控制点的纵坐标（路径控制点类似PS中钢笔工具两点之间锚点的位置坐标，用于控制弧度大小）
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="x" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    x，y参数表示路径结束点的横纵坐标；
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="y" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    y参数表示路径结束点的横纵坐标；
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

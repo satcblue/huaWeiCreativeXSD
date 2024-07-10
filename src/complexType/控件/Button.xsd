@@ -1,0 +1,71 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Button">
+        <xs:annotation>
+            <xs:documentation>
+                按钮
+                按钮标签，在锁屏界面有一块显示区域，能够触发Trigger等一系列的操作和命令，可以通过不同的状态标签来展现对应状态下设置的图片或者文字等。
+                应用场景:
+                - 设置好按钮热区，点击该区域，切换壁纸。
+                - 滑动热区，播放动画的下一帧。
+                - 点击热区，大雨下起或者雪花飘落。
+                - 点击热区，花儿绽放。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="name" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    按钮的名称。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="x" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    相对于屏幕左上角的x坐标。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="y" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    相对于屏幕左上角的y坐标。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="w" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    容器宽。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="h" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    容器高。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visibility" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    元素可见性支持表达式 &lt;=0 不可见 &gt;0可见。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="longTouchTime" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    单位毫秒，设定时间，在长按时间超过一定时间的时候触发Trigger action="long"的命令，默认1000ms。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="interceptButtonTouch" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    判断Button是否已经被触发，若interceptButtonTouch为true，则Button仅能够被触发一次。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

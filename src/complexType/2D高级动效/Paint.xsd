@@ -1,0 +1,20 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Paint">
+        <xs:attribute name="weight" type="xs:float" use="required">
+            <xs:annotation>
+                <xs:documentation>笔刷的粗细，单位为像素，值越大，笔刷越粗，值越小，笔刷越细，取正实数，默认为0，支持表达式。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="color" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>如果覆盖图层想用颜色进行覆盖，则填写6或8位16进制颜色，如#afffffff。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="clear_percent" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>当覆盖图层被笔刷刷掉这个比例后，整个覆盖图层自动清除，显示背景图层。取值范围为1-100，默认60，支持表达式。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

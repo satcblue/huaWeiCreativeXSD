@@ -1,0 +1,52 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="EndPoint">
+        <xs:annotation>
+            <xs:documentation>
+                结束点
+                结束点标签，其与起始点标签相同，但是Slider中可以有多个EndPoint。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="x" type="xs:decimal" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    结束点相对于屏幕左上角的x坐标。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="y" type="xs:decimal" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    结束点相对于屏幕左上角的y坐标。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="w" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    结束点响应区域的大小，宽。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="h" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    结束点响应区域的大小，高。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="normalSound" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    普通状态下播放的音效
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="pressedSound" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    解锁控件在press状态播放的音效
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

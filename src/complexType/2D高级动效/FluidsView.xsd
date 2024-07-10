@@ -1,0 +1,56 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <!-- FluidsView ComplexType -->
+    <xs:complexType name="FluidsView">
+        <xs:annotation>
+            <xs:documentation>
+                功能概述:
+                模拟流体流动效果，可以设置流体的颜色，数量以及区域等，可以应用在锁屏和桌面上。
+
+                说明:
+                注意：在桌面应用时不可以与其他动效共用。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="bgSrc" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>设置流体的背景</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="color" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>设置流体的颜色</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="gravityRatio" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>设置流体的重力系数，取值范围为（0-1）</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="viscosity" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>设置流体的粘滞系数，取值范围为（0-1）</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="waterAlpha" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>设置流体的透明度，取值范围为（0-1）</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="waterAlphaThreshold" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>设置流体混和的透明度阈值，取值范围为（0-1）</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="scaleType" type="xs:string" use="optional" default="center_crop">
+            <xs:annotation>
+                <xs:documentation>
+                    背景图片的缩放模式，目前支持两种模式，默认为center_crop。
+
+                    fill表示填充满屏幕，若图片比例与屏幕不匹配会导致图片拉伸；
+                    center_crop表示按照宽或高的比例进行适配，使图片充满整个屏幕，多余部分裁剪。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,17 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Vibrate">
+        <xs:annotation>
+            <xs:documentation>
+                自定义振动标签&lt;Vibrate&gt;为&lt;VibrateCommand&gt;的子标签，表示使用自定义振动模式。
+                当&lt;VibrateCommand&gt;中的define参数赋值为true时，必须使用&lt;Vibrate&gt;标签。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="loop" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    loop属性表示是否循环播放，true循环，false表示非循环。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

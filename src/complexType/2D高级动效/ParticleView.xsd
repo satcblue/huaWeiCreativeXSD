@@ -1,0 +1,72 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="ParticleView">
+        <xs:annotation>
+            <xs:documentation>
+                动效概述:
+                当手指在锁屏上滑动时，在滑动轨迹处会生成跟手粒子。粒子形状、颜色由输入的粒子图片控制，而粒子数量和大小等可通过参数进行设置。此外，还可以通过Range子标签来设置跟手粒子响应区域，即只有当手指滑动处于Range区域时，才生成跟手粒子。
+
+                场景举例:
+                - 浩瀚的海洋跟手一群鱼。
+                - 震撼的星空跟手闪烁的星星。
+                - 在大树旁，大风吹过，跟手飘落的树叶与花瓣。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="w" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    粒子宽度，取值正实数，默为60，支持数值表达式。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="h" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    粒子高度，宽高比例建议1:1，取值正实数，默为60，支持数值表达式。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="count" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    每次滑动产生的粒子数量，取值为正整数，建议范围[1,30]，默认为6；数值太大会造成卡顿现象。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="move_radius" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    粒子在手指运动轨迹的基础上随机运动半径的反比例系数；数值越大，粒子随机运动半径越小；取值范围为(1，屏幕宽度)，默认为16，支持数值表达式。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="speek_sec" type="xs:double" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    单位时间粒子运动的距离，该值越大粒子消失越快。取值正实数，默认为2.5，支持数值表达式。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="reduce_size" type="xs:double" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    每次运动时粒子宽高缩小的尺寸，取值正实数（设置过大会导致粒子消失太快），取值范围[0.1,5]，默认为3，支持数值表达式。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="set_path" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    是否设置跟手粒子响应区域，true/false；true表示设置，false表示不设置，默认false；如果为true，需要在PathData标签中设置矩形区域。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="src" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    粒子图片资源名称，生成跟手粒子时使用。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

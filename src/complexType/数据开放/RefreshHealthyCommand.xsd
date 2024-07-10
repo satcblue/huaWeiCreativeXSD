@@ -1,0 +1,9 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="RefreshHealthyCommand">
+        <xs:annotation>
+            <xs:documentation>
+                运动健康数据刷新命令，主要应用于需要手动刷新运动健康数据的场景。
+            </xs:documentation>
+        </xs:annotation>
+    </xs:complexType>
+</xs:schema>

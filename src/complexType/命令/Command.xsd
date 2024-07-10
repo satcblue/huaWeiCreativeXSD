@@ -1,0 +1,49 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Command">
+        <xs:annotation>
+            <xs:documentation>
+                基础命令
+                基础命令，通过对象名和对应的属性来控制界面中的元素。常见是控制元素的可见性（visibility）和动画播放（animation）。
+                应用场景:
+                - 长按触发视频播放，到达一定条件，停止播放。
+                - 点击屏幕，到达一定条件，展示或者隐藏图片。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="target" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    对象name的名字（如控制对象&lt;Image name="image1"/&gt;），“.”后面跟的是属性（目前支持visibility和animation）。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="value" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    控制可见性visibility时，value为”true”, “false”或“toggle”，分别代表可见、不可见以及反转可见性；控制动画animation时，value为”play”或”stop”，控制动画的播放和暂停。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="condition" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    条件判断，支持表达式。当condition里的条件判断为非0或者为true时，该命令执行，为false或者0则不执行。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="delay" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    延迟，以ms毫秒记。延迟delay毫秒后执行该命令。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="delayCondition" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    延迟判断，为真则delay命令生效，否则失效。默认为true或者1时，表示可以延迟启动命令，如果false或者非1则不延迟执行。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

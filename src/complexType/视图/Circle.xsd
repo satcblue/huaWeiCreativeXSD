@@ -1,0 +1,21 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:include schemaLocation="../../complexType/视图/GeometricalBase.xsd"/>
+    <xs:complexType name="Circle">
+        <xs:annotation>
+            <xs:documentation>
+                圆形
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="RemoveNABaseGeometricalBase">
+                <xs:attribute name="r" type="xs:decimal" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            圆半径，自然数，默认为0，单位为像素，支持表达式
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

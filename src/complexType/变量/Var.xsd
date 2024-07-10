@@ -1,0 +1,74 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Var">
+        <xs:annotation>
+            <xs:documentation>
+                自定义变量
+                用户自定义变量，其标签为Var，用户指定变量名称、变量类型和变量值等，并被放入到全局变量中，供其他功能或者表达式调用。数组变量是放入到全局变量中的，其索引名字为 数组名+[索引值]，例如当name = sss时index=1，取变量sss[1]的值， 数组索引从0开始。对于不是数组的普通变量，type 的属性值不为number[] 或者string[] 即可，如果type为空默认为数字变量。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="name" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    变量名，也是全局变量的调用索引名，在支持表达式的情况中使用#+变量名来调用该变量目前的值。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="expression" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    变量对应的表达式或常量 注意：如果定义字符串常量需要多一套单引号: expression="'my string'"。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="type" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    定义数值变量或字符串变量，数字为number，字符串为string，如果是数字数组为number[]，字符串数组为string[]， 默认为"number"。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="threshold" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    阈值，当变量值的变化超过阈值时，可以触发一些命令。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="persist" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    变量持久化；默认为true，如果不需要需要在声明变量的时候显式设置persist="false"。开启变量持久化之后，会优先读取本地同名变量是否有值，如果没有则赋予expression或者默认值，如果有值则会忽略设置的expression值。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="index" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    如果使用数组型的变量则需要添加该项，标识数组的索引，索引值从0开始，index等于0代表值name[0]的取值。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="values" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    格式为values="val, val, val, ..."。该参数会写入所有需要赋的值，然后自动计算数组变量的大小，并且给每一个变量赋值。type类型不同，输出的值的类型也不同，例如：values="10,20"，type为number时，输出的值为10.0,20.0；type为string时，输出的值为10,20。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="const" type="xs:boolean" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    true或者false，变量值是否为常量，表示该变量只要被赋值一次之后其值就不会再改变，默认：false。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="globalPersist" type="xs:boolean" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    变量全局持久化；true或者false，默认为false。设置为true即开启变量全局持久化，会优先读取本地同名变量是否有值，该变量会在锁屏、桌面、折叠屏不同状态（折叠、打开、翻转）中同步，如果没有则赋予expression或者默认值。注意不可以和persist同时使用。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

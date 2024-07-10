@@ -1,0 +1,55 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="CollBodyCommand">
+        <xs:annotation>
+            <xs:documentation>
+                刚体变速受力命令&lt;CollBodyCommand&gt;，可以改变刚体的运动速度、受力方向、刚体属性和刚体类型，可以配合2D物理碰撞使用。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="collbodyid" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    要调整的刚体的id。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="forceX" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    刚体x方向受力调整，建议取值范围【-10000000——10000000】，正负值表示方向相反。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="forceY" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    刚体y方向受力调整，建议取值范围【-10000000——10000000】，正负值表示方向相反。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="vx" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    刚体x方向速度调整，建议取值范围【-10000000——10000000】，正负值表示方向相反。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="vy" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    刚体y方向速度调整，建议取值范围【-10000000——10000000】，正负值表示方向相反。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="isActive" type="xs:int" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    刚体属性，0为非刚体，其他值及默认值1为刚体。
+                    说明:
+                    刚体不能被穿过，碰撞时反弹。非刚体可被穿过。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+
+</xs:schema>

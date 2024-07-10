@@ -1,0 +1,78 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="StereoView">
+        <xs:attribute name="sAngle" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    旋转时两个页面的夹角，范围为 0 至 180 度
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="can3D" type="xs:boolean" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    是否支持 3D 旋转模式，1 是 3D 旋转模式，0 是非 3D 旋转模式
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="resistance" type="xs:float" use="optional" default="1.8">
+            <xs:annotation>
+                <xs:documentation>
+                    旋转时的阻力效果，默认 1.8，范围为 0.1 至 10
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+
+        <xs:attribute name="fixed" type="xs:boolean" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    是否固定图片大小，默认为固定，填写 1 为取消固定
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="align" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    水平方向对齐方式，默认为 left，可选参数为 left, center, right
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="alignV" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    垂直方向对齐方式，默认为 top，可选参数为 top, center, bottom
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="w" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    宽度，支持表达式
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+
+        <xs:attribute name="h" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    高度，支持表达式
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="x" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    x 坐标，支持表达式
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+
+        <xs:attribute name="y" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    y 坐标，支持表达式
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,50 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+
+    <xs:complexType name="Layer">
+        <xs:attribute name="x" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>相对于屏幕左上角的x坐标，支持表达式，默认值为0。因透视投影的影响，当在远处时显示的位置也不同，跟z值有关。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="y" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>相对于屏幕左上角的y坐标，支持表达式，默认值为0。因透视投影的影响，当在远处时显示的位置也不同，跟z值有关。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="z" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>图层的空间位置，相机视野内的取值范围为[-10,7]之间的浮点数，支持表达式，默认值为0。屏幕向外为正方向。因使用透视投影，物体显示效果为远小近大。设计图层Layer标签时，需要根据z值从小到大赋值，即图层从远到近的顺序绘制。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="w" type="xs:float" use="required">
+            <xs:annotation>
+                <xs:documentation>图片的宽，支持表达式，w和width写法都可以。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="h" type="xs:float" use="required">
+            <xs:annotation>
+                <xs:documentation>图片的高，支持表达式，h和height写法都可以。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="src" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>图片的资源，例如：bj.png</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="staticCondition" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>图层是否静态，不随相机位置改变，取值为true和false。为true时表示图层静态，不发送改变。默认为false。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="delay" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>帧动画延迟播放属性，默认不延迟。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="repeat" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>帧动画重复次数，默认为无限重复。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

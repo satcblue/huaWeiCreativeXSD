@@ -1,0 +1,57 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:include schemaLocation="../../complexType/2D高级动效/CollisionWorld.xsd"/>
+    <xs:include schemaLocation="../../complexType/2D高级动效/Texture.xsd"/>
+    <xs:include schemaLocation="../../complexType/2D高级动效/CollBody.xsd"/>
+    <xs:include schemaLocation="../../element/命令/IntentCommand.xsd"/>
+
+
+    <xs:element name="CollisionWorld">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="CollisionWorld">
+                    <xs:choice minOccurs="0" maxOccurs="unbounded">
+                        <xs:element name="Texture" minOccurs="0"
+                                    maxOccurs="1">
+                            <xs:complexType>
+                                <xs:complexContent>
+                                    <xs:extension base="Texture">
+                                    </xs:extension>
+                                </xs:complexContent>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="CollBody" minOccurs="0"
+                                    maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:complexContent>
+                                    <xs:extension base="CollBody">
+                                        <xs:choice minOccurs="0" maxOccurs="unbounded">
+                                            <xs:element name="Texture" minOccurs="0"
+                                                        maxOccurs="1">
+                                                <xs:complexType>
+                                                    <xs:complexContent>
+                                                        <xs:extension base="Texture">
+                                                        </xs:extension>
+                                                    </xs:complexContent>
+                                                </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="IntentCommand" minOccurs="0"
+                                                        maxOccurs="unbounded">
+                                                <xs:complexType>
+                                                    <xs:complexContent>
+                                                        <xs:extension base="IntentCommand">
+                                                        </xs:extension>
+                                                    </xs:complexContent>
+                                                </xs:complexType>
+                                            </xs:element>
+                                        </xs:choice>
+                                    </xs:extension>
+                                </xs:complexContent>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:choice>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

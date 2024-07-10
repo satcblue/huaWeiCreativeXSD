@@ -1,0 +1,41 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="VR">
+        <xs:annotation>
+            <xs:documentation>
+                动效概述:
+                全景图片的360度全景功能，支持柱状和球状全景图的解析，支持根据手动或传感器方式改变全景视角。
+                全景动效支持应用于锁屏和桌面，应用于桌面时仅支持传感器模式。
+
+                说明:
+                全景图片的显示会占满屏幕，与时间等其他功能叠加时需要至于底层避免遮挡。
+                全局只支持一个全景功能，若脚本中编写多个全景功能，只识别第一个。
+                应用于桌面时，需要在主题包descrption.xml中添加 &lt;wallpaper&gt;HWThemeEngine &lt;wallpaper&gt;标签，请参见视频桌面。
+
+                场景举例:
+                - 展示长幅的画卷
+                - 展示宇宙星空，海洋等宏大浩瀚的场景
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="src" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>全景图片名称，目前仅支持jpg和png格式图片。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="srcid" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>全景图片序号，如src="vr.jpg"，srcid="0"，最终全景图片名称为"vr_0.jpg"。默认为0，支持变量，可通过设置变量动态修改全景图片资源。注意全景图片的imageType需保持一致。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="imageType" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>全景图片类型，SPHERICAL：球状全景图；RING：柱状全景图。默认为SPHERICAL。注意：柱状全景图不支持上下滑动和放大缩小；球状全景图宽高比例要求2:1；柱状全景宽高比建议大于4:1。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="touchType" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>改变全景视角方式，取值为0,1,2。0表示通过用户滑动屏幕动作改变全景视角，1表示根据传感器数值改变全景视角，2表示混合模式，滑动和传感器可同时作用改变全景视角。默认为0，支持表达式，可以使用变量切换改变全景视角方式。注意：全景动效应用于桌面时仅支持传感器模式。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

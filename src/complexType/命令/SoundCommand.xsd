@@ -1,0 +1,43 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="SoundCommand">
+        <xs:annotation>
+            <xs:documentation>
+                声音命令
+                声音命令，用来控制播放音频文件；注意：声音文件的大小要求不超过500kB，时长不超过10秒。
+                应用场景:
+                - 捏猫的脸，可发出喵声。
+                - 记事提醒，一到规定的时间点，可有提示声。
+                - 解压类场景，扎破气球，会有爆破的声音。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="sound" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    声音文件路径名。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="volume" type="xs:decimal" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    正浮点数，声音大小，0~1的一个浮点数。数值越大，音量越大。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="loop" type="xs:boolean" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    是否循环播放，true/false，默认是false。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="keepCur" type="xs:boolean" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    播放此音频时，是否保持当前正在播放的声音，true/false，默认false。只有当同时播放的音频数量大于系统最大值时才暂停优先级低的音频数据。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

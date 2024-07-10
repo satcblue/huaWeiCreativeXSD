@@ -1,0 +1,66 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="MediaProgressbar">
+        <xs:annotation>
+            <xs:documentation>
+                音乐进度条，支持设计进度条的颜色、宽度、高度等参数。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="topColor" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    已进行进度颜色，支持表达式。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="bottomColor" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    未进行的进度颜色，支持表达式。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="bgSrc" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    进度条的背景图。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="iconSrc" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    跟随进度的小图标，支持表达式。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="progressWidth" type="xs:int" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    进度条的高度，支持表达式。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="iconWidth" type="xs:int" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    小图标的宽度，支持表达式。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="iconHeight" type="xs:int" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    小图标的高度，支持表达式。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="isRightAngle" type="xs:boolean" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    表示进度条角度，值为true时进度条为直角，非true或不填为圆角。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

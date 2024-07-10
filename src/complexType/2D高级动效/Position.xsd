@@ -1,0 +1,19 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Position">
+        <xs:attribute name="isRandom" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>位置是否随机，true/false，默认false。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="x" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>初始位置的x坐标，不随机时有效，默认为0，支持表达式。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="y" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>初始位置的y坐标，不随机时有效，默认为0，支持表达式。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

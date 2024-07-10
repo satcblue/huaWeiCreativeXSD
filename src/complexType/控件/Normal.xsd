@@ -1,0 +1,10 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Normal">
+        <xs:annotation>
+            <xs:documentation>
+                正常状态
+                表示按钮在正常状态时显示的内容，可加入Image，Text，SourceImage，Time，DateTime，ImageNumber，Group。
+            </xs:documentation>
+        </xs:annotation>
+    </xs:complexType>
+</xs:schema>

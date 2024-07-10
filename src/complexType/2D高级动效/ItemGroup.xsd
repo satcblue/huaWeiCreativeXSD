@@ -1,0 +1,24 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="ItemGroup">
+        <xs:attribute name="x" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>运行范围的x起点，默认为0，支持数值表达式。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="y" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>运行范围的y起点，默认为0，支持数值表达式。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>运行范围的宽度，默认为屏幕宽度，支持数值表达式。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>运行范围的高度，默认为屏幕高度，支持数值表达式。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

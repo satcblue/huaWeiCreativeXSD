@@ -1,0 +1,24 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="AniFrame">
+        <xs:annotation>
+            <xs:documentation>
+                基础命令，让一个变量在规定时间内变化的动画。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="value" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    这一刻时间变量的数值。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="time" type="xs:int" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    [0-~]，相对于起始帧的间隔时间（毫秒），不小于0。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

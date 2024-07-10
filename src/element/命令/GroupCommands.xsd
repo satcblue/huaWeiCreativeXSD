@@ -1,0 +1,12 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:include schemaLocation="../../complexType/命令/GroupCommands.xsd"/>
+    <xs:element name="GroupCommands">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="GroupCommands">
+
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

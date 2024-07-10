@@ -1,0 +1,10 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="PressedState">
+        <xs:annotation>
+            <xs:documentation>
+                按下状态
+                按下状态标签，表示在点击区域按下开始触发的状态信息。
+            </xs:documentation>
+        </xs:annotation>
+    </xs:complexType>
+</xs:schema>

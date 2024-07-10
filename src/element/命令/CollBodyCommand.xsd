@@ -1,0 +1,13 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:include schemaLocation="../../complexType/命令/CollBodyCommand.xsd"/>
+    <xs:element name="CollBodyCommand">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="CollBodyCommand">
+
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

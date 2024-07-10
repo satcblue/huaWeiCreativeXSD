@@ -1,0 +1,18 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:include schemaLocation="../../complexType/应用/CommonWallpaper.xsd"/>
+    <xs:include schemaLocation="../../element/2D高级动效/VR.xsd"/>
+    <xs:element name="CommonWallpaper" type="CommonWallpaper">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="CommonWallpaper">
+                    <xs:all minOccurs="1" maxOccurs="1">
+                        <xs:element name="VR" type="VR" minOccurs="0" maxOccurs="1"/>
+                    </xs:all>
+                </xs:extension>
+            </xs:complexContent>
+
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

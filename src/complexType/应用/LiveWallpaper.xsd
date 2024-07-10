@@ -1,0 +1,38 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:complexType name="LiveWallpaper">
+        <xs:annotation>
+            <xs:documentation>
+                功能概述:
+                支持动态视频桌面。同时支持左右滑动桌面时，切换播放所设置的视频区间，还支持选择是否播放视频声音。
+
+                说明:
+                视频桌面 &lt;LiveWallpaper&gt; 为独立模块，不可以与可交互桌面 &lt;InteractiveWallpaper&gt; 支持的动效共同使用。
+
+                应用场景:
+                可用于在桌面滑动时，切换不同的动态场景。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="version" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    版本号，描述此规范的版本。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="frameRate" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    帧率，控制视频的播放帧率。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="screenWidth" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    屏幕宽度。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

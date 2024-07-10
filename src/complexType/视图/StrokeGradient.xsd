@@ -1,0 +1,16 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="StrokeGradient">
+        <xs:annotation>
+            <xs:documentation>
+                描边着色
+                注意：
+
+                1.有面积的几何图形可同时设置描边和填充的颜色或渐变，线条类几何图形只支持设置描边；
+
+                2.若fillColor/strokeColor与FillGradient/StrokeGradient同时存在，则绘制FillGradient/StrokeGradient；
+
+                3.位移、透明度等动画需要写在渐变方式之前，否则无法解析到。
+            </xs:documentation>
+        </xs:annotation>
+    </xs:complexType>
+</xs:schema>

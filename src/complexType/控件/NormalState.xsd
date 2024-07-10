@@ -1,0 +1,10 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="NormalState">
+        <xs:annotation>
+            <xs:documentation>
+                正常状态
+                正常状态标签，表示在非触摸时的状态。
+            </xs:documentation>
+        </xs:annotation>
+    </xs:complexType>
+</xs:schema>

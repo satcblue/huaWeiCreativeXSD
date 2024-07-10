@@ -1,0 +1,41 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Alpha">
+        <xs:attribute name="x" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>透明度限制范围的x起点，默认为0，支持表达式。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="y" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>透明度限制范围的y起点，默认为0，支持表达式。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>透明度限制范围的宽度，默认为屏幕宽度，支持表达式。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>透明度限制范围的高度，默认为屏幕高度，支持表达式。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="alphaStart" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>透明度值，0~255，默认值为255，支持表达式。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="alphaEnd" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>透明度值，0~255，默认值为255，支持表达式。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="direction" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>透明度变化方向，在区域内根据粒子的位置对物体透明度进行线性的变化，值为(left, right, up,
+                    down)分别是向左. 右. 上. 下，物体透明度从alphaStart根据位置和方向线性变化到alphaEnd。默认方向向上。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

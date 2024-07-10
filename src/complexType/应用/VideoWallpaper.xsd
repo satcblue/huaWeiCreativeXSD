@@ -1,0 +1,71 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:complexType name="VideoWallpaper">
+        <xs:attribute name="src" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    该分辨率的视频名称。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="timeSequences" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    视频播放时间序列，支持小数点，默认0s秒开始，若开始为大于0s，则从指定时间开始；若存在多个时间区，用英文逗号","分隔开来，如果视频总时长大于写的最后一个数字，则该数字到视频末尾为最后一段视频，左右滑动可以来回切换设置的时间区间，在某一时间区间内视频循环播放。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="haveVideoVoice" type="xs:boolean" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    是否有声音，默认false。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="isMusic" type="xs:boolean" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    是否支持主动获取三方音乐app的播放与暂停，true/false，默认值为false。如果选择true，注意在wallpaper目录下，unlock_wallpaper_0.jpg需要是透明图片。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="turn" type="xs:double" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    主动获取三方音乐app时，会提供一段视频素材（注意：视频素材需要是无音轨的视频）。假设视频共15秒，前9秒是播放音乐暂停时的视频，9-15秒是播放音乐播放时的视频，那么9秒即为turn的值，单位是秒。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="loop" type="xs:boolean" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    是否支持循环播放，默认为true，设置为false时播放完一段视频时会暂停。注：视频分段时生效，不分段时不生效。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="canBeInterrupt" type="xs:boolean" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    是否支持视频播放过程中滑动切换视频，默认为true视频播放过程中左右滑动会切换视频。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="toNext" type="xs:boolean" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    视频分为多段情况下，从左往右滑动屏幕时，是否播放下一段视频。默认为false播放的是上一段。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="scaleType" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    支持fill、center_crop，默认为center_crop模式。
+
+                    fill 表示填充满width和height宽高，若视频比例与屏幕不匹配会导致视频拉伸。
+                    center_crop
+                    表示将视频文件宽高显示效果均不小于控件宽高。如果视频宽或者高小于控件宽或者高，则等比放大直到铺满控件，有超出屏幕部分的则截取视频中间部分铺满控件播放；如果视频资源文件的宽高均大于控件宽高，则等比缩小视频，当视频的宽高任意一值等于控件的宽高时停止缩放，截取中间部分视频显示播放。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,164 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:include schemaLocation="../../complexType/视图/Base.xsd"/>
+
+    <xs:complexType name="Video">
+        <xs:annotation>
+            <xs:documentation>
+                视频播放控件，将一段视频加入到视图中，能够设置播放、循环播放、声音控制等功能；支持AVI，MP4，MOV等多种格式的本地视频的播放。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="Base">
+                <xs:attribute name="name" type="xs:string" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            视频命名，可用于videoCommand的定位Video对象，以控制视频的播放、换源和音量等。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="x" type="xs:decimal" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            视频左上角x位置，支持数字表达式，默认值为0。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="y" type="xs:decimal" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            视频左上角y位置，支持数字表达式，默认值为0。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="w" type="xs:decimal" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            视频显示的宽，单位像素，默认为屏幕大小。该属性和width等效。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="width" type="xs:decimal" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            视频显示的宽，单位像素，默认为屏幕大小。该属性和w等效。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="h" type="xs:decimal" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            视频显示的高，单位像素，默认为屏幕大小。该属性和height等效。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="height" type="xs:decimal" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            视频显示的高，单位像素，默认为屏幕大小。该属性和h等效。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="play" type="xs:boolean" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            是否加载之后自动开始播放，true/false，默认值为true。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="looping" type="xs:boolean" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            视频是否循环播放，true/false，默认值为false不循环播放。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="sound" type="xs:decimal" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            视频播放声音控制，值为0~1之间的值，值越大声音越大。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="living" type="xs:boolean" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            路径是否为URI路径而非本地路径，true/false。living为true则src需为uri路径，默认false，默认为本地路径。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="src" type="xs:string" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            视频的文件路径，可带文件夹路径，例如aa/exmple.mp4，js.mp4等。
+                            视频支持用户自动义，自定义路径必须为sd卡下路径，须以“../../../../../sdcard”开头，例如“../../../../../sdcard/Pictures/123.mp4”，后续路径可自定义。
+                            视频格式支持mp4/avi/mov。视频文件须小于25M。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="scaleType" type="xs:string" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            支持fill、fit_width、center_crop三种模式，默认为fill模式。
+                            fill表示填充满width和height宽高，若视频比例与屏幕不匹配会导致视频拉伸。
+                            fit_width表示宽匹配功能，视频缩放到设置的width那么宽，按照视频比例调整height，若视频宽高比例大于屏幕，则填充不满屏幕，若视频宽高比小于屏幕，则会有部分视频不在显示区域中。
+                            center_crop表示将视频文件宽高显示效果均不小于控件宽高。如果视频宽或者高小于控件宽或者高，则等比放大直到铺满控件，有超出屏幕部分的则截取视频中间部分铺满控件播放；
+                            如果视频资源文件的宽高均大于控件宽高，则等比缩小视频，当视频的宽高任意一值等于控件的宽高时停止缩放，截取中间部分视频显示播放。
+                            使用center_crop模式时建议搭配image来设置视频第一帧（参照示例2），不建议搭配defaultbitmap设置第一帧（效果不太协调）。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="visibility" type="xs:boolean" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            视频组件的可见性，支持true/false和1/0来分别调整视频的可见或者不可见。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="isMusic" type="xs:boolean" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            是否支持主动获取三方音乐app的播放与暂停，true/false，默认值为false。isMusic="true"时，需设置turn、defaultBitmap和defaultBitmapMusic。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="turn" type="xs:integer" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            主动获取三方音乐app时，会提供一段视频素材（注意：视频素材需要是无音轨的视频）。假设视频共15秒，前9秒是播放音乐暂停时的视频，9-15秒是播放音乐播放时的视频，那么9秒即为turn的值，单位是秒。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="defaultBitmapMusic" type="xs:string" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            播放音乐时，视频未加载时或者停止时默认显示的图片。图片推荐为用于音乐播放状态的视频首帧图片。假设视频共15秒，前9秒是音乐暂停时播放的视频，9-15秒是音乐播放时播放的视频，则图片为视频第9秒的首帧图片。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="defaultBitmap" type="xs:string" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            选填，默认图片，即视频未加载时或者停止时默认显示的图片。普通手机/折叠屏手机折叠态/平板竖屏态时使用。
+                            图片需要和普通手机/折叠屏手机折叠态/平板竖屏态原本的视频保持一致的宽高，推荐使用视频首帧图片。因为视频加载需要时间，先显示一张首帧图，让视频显示有个平滑的过渡效果。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="defaultBigBitmap" type="xs:string" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            选填，默认图片，即视频未加载时或者停止时默认显示的图片。折叠屏手机展开态/平板横屏态时使用。
+                            图片需要和折叠屏手机展开态/平板横屏态原本的视频保持一致的宽高，推荐使用视频首帧图片。因为视频加载需要时间，先显示一张首帧图，让视频显示有个平滑的过渡效果。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="isBackground" type="xs:boolean" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            允许设置为"true"或"false"，默认为false。设置为true表示该视频作为背景使用，必须与scaleType="center_crop"配合使用。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

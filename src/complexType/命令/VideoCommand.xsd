@@ -1,0 +1,44 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="VideoCommand">
+        <xs:annotation>
+            <xs:documentation>
+                视频命令
+                视频命令用于控制视频的播放、停止和声音设置。
+                应用场景:
+                - 替换当前播放的视频。
+                - 控制视频的播放和停止。
+                - 调整视频播放的音量。
+                注意：其中声音与播放只能同时实现一个，只有在没有控制声音的参数时，才能使用play参数。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="name" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    所控制的视频的标识。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="src" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    需要替换的视频的资源地址。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="play" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    控制视频的播放或者停止。当有声音参数时，不可使用此属性。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="sound" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    控制视频播放的声音，支持0~1的一个浮点数；数值越大，音量越大。也支持有音量为true，无音量为false。当有此属性时，不可使用play属性。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

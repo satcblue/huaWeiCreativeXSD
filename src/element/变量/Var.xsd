@@ -1,0 +1,20 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:include schemaLocation="../../complexType/变量/Var.xsd"/>
+    <xs:include schemaLocation="../../element/控件/Trigger.xsd"/>
+    <xs:include schemaLocation="../../element/2D基础动效/VariableAnimation.xsd"/>
+
+
+    <xs:element name="Var">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="Var">
+                    <xs:choice minOccurs="0" maxOccurs="unbounded">
+                        <xs:element ref="Trigger" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="VariableAnimation" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:choice>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

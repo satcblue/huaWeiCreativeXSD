@@ -1,0 +1,66 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="LrcView">
+        <xs:annotation>
+            <xs:documentation>
+                音乐歌词，提供多行歌词控件，最小展示三行歌词，适用于锁屏和桌面。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="maxLines" type="xs:int" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    设置maxLines="2"，实现展示一句歌词：歌词未超出控件宽度时，展示为一行；歌词超出控件宽度时，展示为两行且第二行居中显示，超出两行部分展示为省略号。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="color" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    普通歌词的颜色，支持表达式。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="size" type="xs:int" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    普通歌词的文字大小，支持表达式。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="highColor" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    高亮歌词的颜色，支持表达式。不填则与普通歌词保持一致。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="highSize" type="xs:int" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    高亮歌词的文字大小，支持表达式。不填则与普通歌词保持一致。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="w" type="xs:int" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    歌词控件的宽度。支持表达式。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="h" type="xs:int" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    歌词控件的高度，最小展示三行歌词。支持表达式。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="dividerHeight" type="xs:int" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    歌词的行间距，如果没有设置，默认为20。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

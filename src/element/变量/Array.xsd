@@ -1,0 +1,30 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:include schemaLocation="../../complexType/变量/Array.xsd"/>
+    <xs:include schemaLocation="../../element/视图/Image.xsd"/>
+    <xs:include schemaLocation="../../element/视图/Text.xsd"/>
+    <xs:include schemaLocation="../../element/视图/SourceImage.xsd"/>
+    <xs:include schemaLocation="../../element/视图/Time.xsd"/>
+    <xs:include schemaLocation="../../element/视图/DateTime.xsd"/>
+    <xs:include schemaLocation="../../element/视图/ImageNumber.xsd"/>
+
+    <xs:include schemaLocation="../../element/组/Group.xsd"/>
+
+    <xs:element name="Array">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="Array">
+                    <xs:choice minOccurs="0" maxOccurs="unbounded">
+                        <xs:element ref="Image" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="Text" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="SourceImage" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="Time" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="DateTime" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="ImageNumber" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:choice>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

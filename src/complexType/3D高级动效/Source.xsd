@@ -1,0 +1,15 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Source">
+        <xs:attribute name="frame" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>帧动画图片资源，例如：zhen_1.png</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="time" type="xs:float" use="required">
+            <xs:annotation>
+                <xs:documentation>[0-~]，相对于起始帧的间隔时间（毫秒），也是动画持续时间，帧图片人肉眼能识别时间延时为300ms左右，不小于0</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

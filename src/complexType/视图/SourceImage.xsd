@@ -1,0 +1,77 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:include schemaLocation="../../complexType/视图/Base.xsd"/>
+
+    <xs:complexType name="SourceImage">
+        <xs:annotation>
+            <xs:documentation>
+                帧解锁视图
+                根据设定的图片和时间间隔顺序播放图片，是另外一种形式的帧动画。它提供解锁的功能，当触摸时帧数大于等于设定值时能够调用解锁操作，若未大于等于设定值时抬起手指，则加速递减回首帧。
+                但是，帧解锁视图会在一定程度上牺牲流畅度，降低系统的内存占用，适用于不需要高流畅度的帧动画效果。
+                应用场景:
+                - 鸟在天空一直飞翔
+                - 星星夜空不停地闪烁
+                - 花儿在草中绽放等连续性的动画场景
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="RemoveCategoryBase">
+                <xs:attribute name="sourceName" type="xs:string" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            指定图片名的前缀，例如name="aa/pic__"，表示aa文件夹中pic_开头的图片。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="format" type="xs:string" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            图片后缀名，.jpg/.png，组合成的图片的文件名，例如 aa/pic_0.jpg。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="from" type="xs:integer" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            动画首帧图片名字的序号，正整数，默认0，支持表达式。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="to" type="xs:integer" use="required">
+                    <xs:annotation>
+                        <xs:documentation>
+                            动画末帧图片名字的序号，正整数，支持表达式。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="space" type="xs:integer" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            每帧动画播放的间隔时间（毫秒），正整数，默认30。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="loop" type="xs:boolean" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            动画是否需要循环，true/false，默认为true。true时循环播放，可与direction和unlockTo配合设置触发解锁。false时只播放一次，direction无效，即不能触发解锁，unlockTo参数依旧有效，在小于unlockTo时点击屏幕加速递减回到首帧并停止，若长按至unlockTo则停止在unlockTo；若大于等于unlockTo时点击屏幕则停止在当前帧；若不点击则在to帧时停止。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="direction" type="xs:integer" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            0/1，如果需要使用帧动画解锁，direction设置为0，loop必须为true，unlockTo必须有值。如果不需要解锁，设置direction为1，loop为true时，会正常从首帧到末帧循环播放。direction默认值1。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="unlockTo" type="xs:integer" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>
+                            触发解锁的帧序号，(from,to)间正整数，如果需要使用帧动画解锁，必须设置触发解锁的帧序号。触摸屏幕后，当当前图片序号大于等于这一帧序号-1时解锁。如果unlock直接设置为末帧或者超过末帧，序号会直接增大到末帧并解锁。注意解锁功能需要与一个button区域结合使用，即需要一个button区域才能够触发。
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

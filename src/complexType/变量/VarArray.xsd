@@ -1,0 +1,57 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="Vars">
+
+    </xs:complexType>
+    <xs:complexType name="Var">
+        <xs:attribute name="name" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    变量名，可以通过@name来返回字符串数组中index指定序号的变量值，返回为字符串无法用作计算
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="index" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    变量数组中的序号，从0开始，支持表达式。注意点：Item中的顺序决定了index的取值
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+    <xs:complexType name="Items"/>
+
+    <xs:complexType name="Item">
+        <xs:attribute name="value" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    变量数组的值，可以是字符串，也可以是数字
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+
+    <xs:complexType name="VarArray">
+        <xs:annotation>
+            <xs:documentation>
+                变量数组
+                以数组的方式来保存变量；根据index值能够取相应索引的值并且显示。
+                应用场景:
+                - 通过此功能获取月份、农历等信息，可以制作日历。
+                - 可用于在界面上显示英文月。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="type" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    定义数值变量number或字符串变量string，默认为number。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+
+
+    </xs:complexType>
+
+</xs:schema>

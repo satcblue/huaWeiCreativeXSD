@@ -1,0 +1,21 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+    <xs:complexType name="weight">
+        <xs:attribute name="isRandom" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>是否随机缩放粒子，true/false，默认false。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="value" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    粒子图片的缩放比例，默认为1，支持表达式。如果不随机则统一设置物体缩放比例为该值，随机则缩放比例是lowestWeight+[(0,value)间随机值]。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="lowestWeight" type="xs:float" use="optional">
+            <xs:annotation>
+                <xs:documentation>仅当isRandom等于true的时候才生效，为随机尺寸的最小值，默认为0.1。</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+</xs:schema>

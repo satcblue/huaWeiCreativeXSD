@@ -1,0 +1,41 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative"
+           xmlns="https://www.satcblue.cn/XMLSchema/HuaWeiCreative" elementFormDefault="qualified">
+    <xs:include schemaLocation="../../complexType/控件/Trigger.xsd"/>
+    <xs:include schemaLocation="../../element/命令/CollBodyCommand.xsd"/>
+    <xs:include schemaLocation="../../element/命令/Command.xsd"/>
+    <xs:include schemaLocation="../../element/命令/CycleCommand.xsd"/>
+    <xs:include schemaLocation="../../element/命令/ExternCommand.xsd"/>
+    <xs:include schemaLocation="../../element/命令/GroupCommands.xsd"/>
+    <xs:include schemaLocation="../../element/命令/IntentCommand.xsd"/>
+    <xs:include schemaLocation="../../element/命令/ParticleCommand.xsd"/>
+    <xs:include schemaLocation="../../element/命令/RefreshWeatherCommand.xsd"/>
+    <xs:include schemaLocation="../../element/命令/SoundCommand.xsd"/>
+    <xs:include schemaLocation="../../element/命令/VariableCommand.xsd"/>
+    <xs:include schemaLocation="../../element/命令/VibrateCommand.xsd"/>
+    <xs:include schemaLocation="../../element/命令/VideoCommand.xsd"/>
+
+    <xs:element name="Trigger">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="Trigger">
+                    <xs:choice minOccurs="0" maxOccurs="unbounded">
+                        <xs:element ref="CollBodyCommand" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="Command" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="CycleCommand" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="ExternCommand" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="GroupCommands" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="IntentCommand" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="ParticleCommand" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="RefreshWeatherCommand" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="SoundCommand" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="VariableCommand" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="VibrateCommand" minOccurs="0" maxOccurs="unbounded"/>
+                        <xs:element ref="VideoCommand" minOccurs="0" maxOccurs="unbounded"/>
+                    </xs:choice>
+                </xs:extension>
+            </xs:complexContent>
+
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

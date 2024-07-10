@@ -1,0 +1,74 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:complexType name="Lockscreen">
+        <xs:annotation>
+            <xs:documentation>
+                锁屏应用
+                动态引擎通过解析unlock/lockscreen文件下的manifest.xml文件，生成一个丰富多彩、符合设计者预期的画面应用在锁屏中，使锁屏变得生动有趣。
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="version" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    版本
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="pressure" type="xs:boolean" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    是否响应屏幕压力（需要设备支持），true为支持，false为不支持，默认为false。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="frameRate" type="xs:integer" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    锁屏帧率设置，单位为(帧/秒)，控制动画等动效刷新速率，默认值为60fps。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="vibrate" type="xs:boolean" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    控制项目中是否开启震动，具体震动场景见震动设置章节；滑动，解锁../控件等是否默认震动。true为震动，false为不震动，默认为true。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="screenWidth" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    描述文件的虚拟的屏幕宽度，根据该宽度和手机屏幕的宽高比能够计算出相应的虚拟的屏幕的高度。描述文件中的数值基于该虚拟的屏幕的宽高，例如分辨率为1560*720的手机在设置screenWidth为1080的描述文件中，其#screen_width为1080,#screen_height为1920，能够保持在同一个屏幕宽高比例的手机中../组件的相对位置保持不变。设定屏幕宽度标准。如果指定为720，锁屏中所有元素的位置都按720p的布局编写。1080p、480p等分辨率的手机会自动进行缩放。
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="chargeAnimTime" type="xs:decimal" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    充电动画时间
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="displayDesktop" type="xs:boolean" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    展示桌面
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="id" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    id
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="xsdVersion" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    xsdVersion
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>

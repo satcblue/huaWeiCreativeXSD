@@ -1,0 +1,14 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative"
+           elementFormDefault="qualified"
+>
+    <xs:include schemaLocation="element/应用/Lockscreen.xsd"/>
+    <xs:element name="Project">
+        <xs:complexType>
+            <xs:choice minOccurs="1" maxOccurs="unbounded">
+                <xs:element ref="Lockscreen" minOccurs="1" maxOccurs="1"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
