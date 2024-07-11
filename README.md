@@ -36,7 +36,7 @@
 ## 其他问题
 1. 没有语法提示，并且在编辑器中`xsi:schemaLocation="https://www.satcblue.cn/XMLSchema/HuaWeiCreative https://hua-wei-creatives-chema.oss-cn-shenzhen.aliyuncs.com/SCHEMA/Project.xsd"` 报红
 
-解决方案：鼠标/光标移到报红位置，（选择修复建议(鼠标操作)/ALT+回车(windows)/option+回车(MAC)）选择![手动提取外部资源](doc%2Fmanual_download_xsd.png)待下载完即可
+解决方案：拉取外部资源（Fetch outer resource）鼠标/光标移到报红位置，（选择修复建议(鼠标操作)/ALT+回车(windows)/option+回车(MAC)）选择![手动提取外部资源](doc%2Fmanual_download_xsd.png)待下载完即可
 
 2. 规则/属性不匹配的情况
 
