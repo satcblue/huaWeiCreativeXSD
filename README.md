@@ -15,7 +15,7 @@
 ```xml
 <Project xmlns="https://www.satcblue.cn/XMLSchema/HuaWeiCreative"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="https://www.satcblue.cn/XMLSchema/HuaWeiCreative https://hua-wei-creatives-chema.oss-cn-shenzhen.aliyuncs.com/SCHEMA/Project.xsd">
+         xsi:schemaLocation="https://www.satcblue.cn/XMLSchema/HuaWeiCreative https://schema-huawei-creative.oss-cn-guangzhou.aliyuncs.com/SCHEMA/Project.xsd">
 
     <Lockscreen frameRate="30">
         <!-- 任意上滑解锁 -->
