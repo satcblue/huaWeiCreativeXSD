@@ -1,4 +1,7 @@
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative"
+           xmlns="https://www.satcblue.cn/XMLSchema/HuaWeiCreative"
+           elementFormDefault="qualified">
     <xs:include schemaLocation="../../complexType/view/Base.xsd"/>
 
     <xs:complexType name="ImageNumber">

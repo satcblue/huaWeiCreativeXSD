@@ -1,5 +1,7 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative"
+           xmlns="https://www.satcblue.cn/XMLSchema/HuaWeiCreative"
+           elementFormDefault="qualified">
     <xs:include schemaLocation="../../complexType/view/GeometricalBase.xsd"/>
     <xs:complexType name="Rectangle">
         <xs:annotation>

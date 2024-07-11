@@ -1,4 +1,7 @@
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://www.satcblue.cn/XMLSchema/HuaWeiCreative"
+           xmlns="https://www.satcblue.cn/XMLSchema/HuaWeiCreative"
+           elementFormDefault="qualified">
     <xs:complexType name="CircleShape">
             <xs:attribute name="type" type="xs:string" use="optional">
                 <xs:annotation>

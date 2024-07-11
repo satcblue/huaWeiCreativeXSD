@@ -16,7 +16,6 @@
 <Project xmlns="https://www.satcblue.cn/XMLSchema/HuaWeiCreative"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://www.satcblue.cn/XMLSchema/HuaWeiCreative https://schema-huawei-creative.oss-cn-guangzhou.aliyuncs.com/SCHEMA/Project.xsd">
-
     <Lockscreen frameRate="30">
         <!-- 任意上滑解锁 -->
         <Unlocker name="unlocker" bounceInitSpeed="2000" bounceAcceleration="3000">
